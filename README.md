@@ -44,3 +44,39 @@ if err != nil {
     fmt.Println(products)
 }
 ```
+
+## Get stock
+
+If you want to read out a stock, then you can do this here via the ID of the product. Please note that you need the same data here as when reading out the products.
+
+[Here](https://xmldoku.afterbuy.de/dokued/) you can find an example from Afterbuy.
+
+```go
+// Define stock body
+body := &goafterbuy.StockBody{
+    goafterbuy.StockRequest{
+        goafterbuy.AfterbuyGlobal{
+            "PartnerId",
+            "PartnerPassword",
+            "UserId",
+            "UserPassword",
+            "GetStockInfo",
+            2,
+            "DE",
+        },
+        goafterbuy.StockProducts{
+            goafterbuy.StockProduct{
+                ProductID,
+            },
+        },
+    },
+}
+
+// Get stock
+stock, err := Stock(body)
+if err != nil {
+    fmt.Println(err)
+} else {
+    fmt.Println(stock)
+}
+```
