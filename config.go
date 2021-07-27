@@ -17,8 +17,9 @@ import (
 )
 
 const (
-	baseURL = "https://api.afterbuy.de/afterbuy/ABInterface.aspx"
-	method  = "GET"
+	abInterfaceBaseUrl   = "https://api.afterbuy.de/afterbuy/ABInterface.aspx"
+	shopInterfaceBaseUrl = "https://api.afterbuy.de/afterbuy/ShopInterface.aspx"
+	method               = "GET"
 )
 
 // AfterbuyGlobal is to define afterbuy global data
@@ -34,7 +35,8 @@ type AfterbuyGlobal struct {
 
 // Config is to define the request data
 type Config struct {
-	Body []byte
+	BaseUrl string
+	Body    []byte
 }
 
 // Send is to send a new request
@@ -44,7 +46,7 @@ func (r *Config) Send() (*http.Response, error) {
 	client := &http.Client{}
 
 	// Request
-	request, err := http.NewRequest(method, baseURL, bytes.NewBuffer(r.Body))
+	request, err := http.NewRequest(method, r.BaseUrl, bytes.NewBuffer(r.Body))
 	if err != nil {
 		return nil, err
 	}

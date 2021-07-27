@@ -144,7 +144,7 @@ type ProductsReturnPaginationResult struct {
 	PageNumber           int      `xml:"PageNumber"`
 }
 
-// Products is to get all products from afterbuy
+// Products is to get all products from ab interface
 func Products(body *ProductsBody) (*ProductsReturn, error) {
 
 	// Convert body
@@ -154,7 +154,7 @@ func Products(body *ProductsBody) (*ProductsReturn, error) {
 	}
 
 	// Config new request
-	r := Config{convert}
+	r := Config{abInterfaceBaseUrl, convert}
 
 	// Send new request
 	response, err := r.Send()

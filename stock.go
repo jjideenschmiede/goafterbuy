@@ -79,7 +79,7 @@ type StockReturnWarning struct {
 	ProductId              string `xml:"ProductID"`
 }
 
-// Stock is to get a stock of an product
+// Stock is to get a stock of an product from ab interface
 func Stock(body *StockBody) (*StockReturn, error) {
 
 	// Convert body
@@ -89,7 +89,7 @@ func Stock(body *StockBody) (*StockReturn, error) {
 	}
 
 	// Config new request
-	r := Config{convert}
+	r := Config{abInterfaceBaseUrl, convert}
 
 	// Send new request
 	response, err := r.Send()
