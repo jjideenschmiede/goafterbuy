@@ -154,7 +154,7 @@ func Products(body *ProductsBody) (*ProductsReturn, error) {
 	}
 
 	// Config new request
-	r := Config{abInterfaceBaseUrl, convert}
+	r := Config{nil, convert}
 
 	// Send new request
 	response, err := r.Send()
