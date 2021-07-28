@@ -89,10 +89,10 @@ func Stock(body *StockBody) (*StockReturn, error) {
 	}
 
 	// Config new request
-	r := Config{nil, convert}
+	c := Config{nil, convert}
 
 	// Send new request
-	response, err := r.Send()
+	response, err := c.Send()
 	if err != nil {
 		return nil, err
 	}

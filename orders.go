@@ -134,10 +134,10 @@ func AddOrder(body *AddOrderBody) (*AddOrderReturn, error) {
 	request.URL.RawQuery = parameter.Encode()
 
 	// Config new request
-	r := Config{request, nil}
+	c := Config{request, nil}
 
 	// Send new request
-	response, err := r.Send()
+	response, err := c.Send()
 	if err != nil {
 		return nil, err
 	}

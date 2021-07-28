@@ -40,20 +40,20 @@ type Config struct {
 }
 
 // Send is to send a new request
-func (r *Config) Send() (*http.Response, error) {
+func (c *Config) Send() (*http.Response, error) {
 
 	// Define client
 	client := &http.Client{}
 
 	// Define request
-	request, err := http.NewRequest(method, abInterfaceBaseUrl, bytes.NewBuffer(r.Body))
+	request, err := http.NewRequest(method, abInterfaceBaseUrl, bytes.NewBuffer(c.Body))
 	if err != nil {
 		return nil, err
 	}
 
 	// Add new request request
-	if r.Request != nil {
-		request = r.Request
+	if c.Request != nil {
+		request = c.Request
 	}
 
 	// Send request & get response
