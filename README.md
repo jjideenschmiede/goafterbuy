@@ -21,20 +21,20 @@ If you want to output multiple pages, then you need to adjust the details in goa
 ```go
 // Define products body
 body := &goafterbuy.ProductsBody{
-    goafterbuy.ProductsRequest{
-        goafterbuy.AfterbuyGlobal{
-            "PartnerId",
-            "PartnerPassword",
-            "UserId",
-            "UserPassword",
-            "GetShopProducts",
-            0,
-            "DE",
+    Request: goafterbuy.ProductsRequest{
+        AfterbuyGlobal: goafterbuy.AfterbuyGlobal{
+            PartnerId:       0,
+            PartnerPassword: "",
+            UserId:          "",
+            UserPassword:    "",
+            CallName:        "",
+            DetailLevel:     0,
+            ErrorLanguage:   "",
         },
-        250,
-        0,
-        1,
-        1,
+        MaxShopItems:                   0,
+        SuppressBaseProductRelatedData: 0,
+        PaginationEnabled:              0,
+        PageNumber:                     0,
     },
 }
 
@@ -58,19 +58,19 @@ If you want to read out a stock, then you can do this here via the ID of the pro
 ```go
 // Define stock body
 body := &goafterbuy.StockBody{
-    goafterbuy.StockRequest{
-        goafterbuy.AfterbuyGlobal{
-            "PartnerId",
-            "PartnerPassword",
-            "UserId",
-            "UserPassword",
-            "GetStockInfo",
-            2,
-            "DE",
+    Request: goafterbuy.StockRequest{
+        AfterbuyGlobal: goafterbuy.AfterbuyGlobal{
+            PartnerId:       0,
+            PartnerPassword: "",
+            UserId:          "",
+            UserPassword:    "",
+            CallName:        "",
+            DetailLevel:     2,
+            ErrorLanguage:   "DE",
         },
-        goafterbuy.StockProducts{
-            goafterbuy.StockProduct{
-                ProductID,
+        Products: goafterbuy.StockProducts{
+            Product: goafterbuy.StockProduct{
+                ProductId: 0,
             },
         },
     },
@@ -94,44 +94,44 @@ If an order is to be returned to the system, then this can be done as follows. P
 ```go
 // Define order body
 body := &goafterbuy.AddOrderBody{
-    "Action",                 
-    "PartnerId",              
-    "PartnerPass",            
-    "UserId",                 
-    "ItemNo",                 
-    "KUsername",              
-    "KSalutation",            
-    "KFirstName",            
-    "KLastName",              
-    "KStreet",                
-    "KZip",                   
-    "KLocation",              
-    "KCountry",               
-    "KPhone",                 
-    "KEmail",                 
-    "ShippingGroup",          
-    "ShippingMethod",         
-    "ShippingCosts",          
-    "NoShippingCalc",         
-    "SoldCurrency",           
-    "NoFeedback",            
-    "DeliveryAddress",        
-    "SetPay",                 
-    "CustomerIdentification", 
-    "ArticleIdentification",  
-    "StockType",            
-    "B1",
-    []goafterbuy.AddOrderBodyItem{},
+    Action:                 "",
+    PartnerId:              "",
+    PartnerPass:            "",
+    UserId:                 "",
+    ItemNo:                 "",
+    KUsername:              "",
+    KSalutation:            "",
+    KFirstName:             "",
+    KLastName:              "",
+    KStreet:                "",
+    KZip:                   "",
+    KLocation:              "",
+    KCountry:               "",
+    KPhone:                 "",
+    KEmail:                 "",
+    ShippingGroup:          "",
+    ShippingMethod:         "",
+    ShippingCosts:          "",
+    NoShippingCalc:         "",
+    SoldCurrency:           "",
+    NoFeedback:             "",
+    DeliveryAddress:        "",
+    SetPay:                 "",
+    CustomerIdentification: "",
+    ArticleIdentification:  "",
+    StockType:              "",
+    B1:                     "",
+    Items:                  []goafterbuy.AddOrderBodyItem{},
 }
 
 body.Items = append(body.Items, goafterbuy.AddOrderBodyItem{
-    "ArticleNo",       
-    "AlternArticleNo", 
-    "ArticleName",
-    "ArticleEPrice",   
-    "ArticleVat", 
-    "ArticleQuantity", 
-    "ArticleMasterId",
+    ArticleNo:       "",
+    AlternArticleNo: "",
+    ArticleName:     "",
+    ArticleEPrice:   "",
+    ArticleVat:      "",
+    ArticleQuantity: "",
+    ArticleMasterId: "",
 })
 
 // Set afterbuy order
