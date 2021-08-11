@@ -113,6 +113,7 @@ type ProductsReturnProduct struct {
 	CustomsTariffNumber    string                        `xml:"CustomsTariffNumber"`
 	CountryOfOrigin        string                        `xml:"CountryOfOrigin"`
 	LastSale               string                        `xml:"LastSale"`
+	Catalogs               ProductsReturnCatalogs        `xml:"Catalogs"`
 	Facebook               int                           `xml:"Facebook"`
 	ManufacturerPartNumber string                        `xml:"ManufacturerPartNumber"`
 	Condition              int                           `xml:"Condition"`
@@ -158,6 +159,11 @@ type ProductsReturnEbayVariationData struct {
 type ProductsReturnScaledDiscounts struct {
 	XmlName        xml.Name                       `xml:"ScaledDiscounts"`
 	ScaledDiscount []ProductsReturnScaledDiscount `xml:"ScaledDiscount"`
+}
+
+type ProductsReturnCatalogs struct {
+	XmlName   xml.Name `xml:"Catalogs"`
+	CatalogId int      `xml:"CatalogID"`
 }
 
 type ProductsReturnScaledDiscount struct {
