@@ -50,6 +50,7 @@ type ProductsReturnProducts struct {
 	XmlName xml.Name                `xml:"Products"`
 	Product []ProductsReturnProduct `xml:"Product"`
 }
+
 type ProductsReturnProduct struct {
 	XmlName                xml.Name                      `xml:"Product"`
 	ProductShopOption      int                           `xml:"ProductShopOption"`
@@ -59,6 +60,9 @@ type ProductsReturnProduct struct {
 	Name                   string                        `xml:"Name"`
 	SeoName                string                        `xml:"SeoName"`
 	ModDate                string                        `xml:"ModDate"`
+	BaseProductFlag        int                           `xml:"BaseProductFlag"`
+	BaseProductShowMode    int                           `xml:"BaseProductShowMode"`
+	BaseProducts           ProductsReturnBaseProducts    `xml:"BaseProducts"`
 	ShortDescription       string                        `xml:"ShortDescription"`
 	Memo                   string                        `xml:"Memo"`
 	GoogleBaseLabels       string                        `xml:"GoogleBaseLabels"`
@@ -122,6 +126,33 @@ type ProductsReturnProduct struct {
 	CustomLabel3           string                        `xml:"CustomLabel3"`
 	CustomLabel4           string                        `xml:"CustomLabel4"`
 	MultiLanguage          interface{}                   `xml:"MultiLanguage"`
+}
+
+type ProductsReturnBaseProducts struct {
+	XmlName     xml.Name                    `xml:"BaseProducts"`
+	BaseProduct []ProductsReturnBaseProduct `xml:"BaseProduct"`
+}
+
+type ProductsReturnBaseProduct struct {
+	XmlName                  xml.Name                               `xml:"BaseProduct"`
+	BaseProductId            int                                    `xml:"BaseProductID"`
+	BaseProductsRelationData ProductsReturnBaseProductsRelationData `xml:"BaseProductsRelationData"`
+}
+
+type ProductsReturnBaseProductsRelationData struct {
+	XmlName           xml.Name                        `xml:"BaseProductsRelationData"`
+	Postion           int                             `xml:"Position"`
+	VariationLabel    string                          `xml:"VariationLabel"`
+	DefaultProduct    int                             `xml:"DefaultProduct"`
+	EbayVariationData ProductsReturnEbayVariationData `xml:"eBayVariationData"`
+}
+
+type ProductsReturnEbayVariationData struct {
+	XmlName               xml.Name `xml:"eBayVariationData"`
+	EbayVariationName     string   `xml:"eBayVariationName"`
+	EbayVariationValue    string   `xml:"eBayVariationValue"`
+	EbayVariationPosition int      `xml:"eBayVariationPosition"`
+	EbayVariationUrls     string   `xml:"eBayVariationUrls"`
 }
 
 type ProductsReturnScaledDiscounts struct {
