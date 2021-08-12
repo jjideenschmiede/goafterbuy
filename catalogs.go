@@ -20,6 +20,7 @@ type CatalogsBody struct {
 
 type CatalogsRequest struct {
 	AfterbuyGlobal AfterbuyGlobal `xml:"AfterbuyGlobal"`
+	MaxCatalogs    int            `xml:"MaxCatalogs"`
 }
 
 // CatalogsReturn is to decode the xml return data
