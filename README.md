@@ -92,7 +92,7 @@ To enable them to read the catalogs, you can use the following function.
 **Attention! Here the XML interface is used.**
 
 ```go
-// Define stock body
+// Define catalogs body
 body := &goafterbuy.CatalogsBody{
     Request: goafterbuy.CatalogsRequest{
         AfterbuyGlobal: goafterbuy.AfterbuyGlobal{
@@ -105,6 +105,7 @@ body := &goafterbuy.CatalogsBody{
             ErrorLanguage:   "DE",
         },
     },
+    MaxCatalogs: 200,
 }
 
 // Get catalogs
