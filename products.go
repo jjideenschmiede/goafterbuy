@@ -88,7 +88,7 @@ type ProductsReturnProduct struct {
 	TitleReplace           int                           `xml:"TitleReplace"`
 	ScaledDiscounts        ProductsReturnScaledDiscounts `xml:"ScaledDiscounts"`
 	TaxRate                int                           `xml:"TaxRate"`
-	Weight                 int                           `xml:"Weight"`
+	Weight                 float64                       `xml:"Weight"`
 	SearchAlias            string                        `xml:"SearchAlias"`
 	Froogle                int                           `xml:"Froogle"`
 	GoogleBaseShipping     string                        `xml:"GoogleBaseShipping"`
