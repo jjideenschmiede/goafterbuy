@@ -85,6 +85,37 @@ if err != nil {
 }
 ```
 
+## Get catalogs
+
+To enable them to read the catalogs, you can use the following function.
+
+**Attention! Here the XML interface is used.**
+
+```go
+// Define stock body
+body := &goafterbuy.CatalogsBody{
+    Request: goafterbuy.CatalogsRequest{
+        AfterbuyGlobal: goafterbuy.AfterbuyGlobal{
+            PartnerId:       0,
+            PartnerPassword: "",
+            UserId:          "",
+            UserPassword:    "",
+            CallName:        "GetShopCatalogs",
+            DetailLevel:     0,
+            ErrorLanguage:   "DE",
+        },
+    },
+}
+
+// Get catalogs
+catalogs, err := goafterbuy.Catalogs(body)
+if err != nil {
+    fmt.Println(err)
+} else {
+    fmt.Println(catalogs)
+}
+```
+
 ## Add order
 
 If an order is to be returned to the system, then this can be done as follows. Please inform yourself [here](https://xmldoku.afterbuy.de/shopdoku/) how it works.
