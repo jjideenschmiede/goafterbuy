@@ -145,11 +145,11 @@ type ProductsReturnBaseProduct struct {
 }
 
 type ProductsReturnBaseProductsRelationData struct {
-	XmlName           xml.Name                        `xml:"BaseProductsRelationData"`
-	Postion           int                             `xml:"Position"`
-	VariationLabel    string                          `xml:"VariationLabel"`
-	DefaultProduct    int                             `xml:"DefaultProduct"`
-	EbayVariationData ProductsReturnEbayVariationData `xml:"eBayVariationData"`
+	XmlName           xml.Name                          `xml:"BaseProductsRelationData"`
+	Postion           int                               `xml:"Position"`
+	VariationLabel    string                            `xml:"VariationLabel"`
+	DefaultProduct    int                               `xml:"DefaultProduct"`
+	EbayVariationData []ProductsReturnEbayVariationData `xml:"eBayVariationData"`
 }
 
 type ProductsReturnEbayVariationData struct {
