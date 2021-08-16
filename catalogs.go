@@ -19,8 +19,23 @@ type CatalogsBody struct {
 }
 
 type CatalogsRequest struct {
-	AfterbuyGlobal AfterbuyGlobal `xml:"AfterbuyGlobal"`
-	MaxCatalogs    int            `xml:"MaxCatalogs"`
+	AfterbuyGlobal AfterbuyGlobal            `xml:"AfterbuyGlobal"`
+	MaxCatalogs    int                       `xml:"MaxCatalogs"`
+	DataFilter     CatalogsRequestDataFilter `xml:"DataFilter"`
+}
+
+type CatalogsRequestDataFilter struct {
+	Filter CatalogsRequestFilter `xml:"Filter"`
+}
+
+type CatalogsRequestFilter struct {
+	FilterName   string                      `xml:"FilterName"`
+	FilterValues CatalogsRequestFilterValues `xml:"FilterValues"`
+}
+
+type CatalogsRequestFilterValues struct {
+	ValueFrom int `xml:"ValueFrom"`
+	ValueTo   int `xml:"ValueTo"`
 }
 
 // CatalogsReturn is to decode the xml return data
