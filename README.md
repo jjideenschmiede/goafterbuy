@@ -106,10 +106,10 @@ body := &goafterbuy.CatalogsBody{
         },
     },
     MaxCatalogs: 200,
-    DataFilter: CatalogsRequestDataFilter{
-        Filter: CatalogsRequestFilter{
+    DataFilter: goafterbuy.CatalogsRequestDataFilter{
+        Filter: goafterbuy.CatalogsRequestFilter{
             FilterName:   "RangeID",
-            FilterValues: CatalogsRequestFilterValues{
+            FilterValues: goafterbuy.CatalogsRequestFilterValues{
                 ValueFrom: 0,
                 ValueTo: 0,
             },
