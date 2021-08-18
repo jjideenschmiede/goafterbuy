@@ -39,6 +39,7 @@ type AddOrderBody struct {
 	KFax                   string
 	KEmail                 string
 	DeliveryAddress        string
+	KLSalutation           string
 	KLCompany              string
 	KLFirstName            string
 	KLLastName             string
@@ -122,17 +123,17 @@ func AddOrder(body *AddOrderBody) (*AddOrderReturn, error) {
 	parameter.Add("Kfax", body.KFax)
 	parameter.Add("Kemail", body.KEmail)
 	parameter.Add("Lieferanschrift", body.DeliveryAddress)
-	parameter.Add("KLanrede", body.KSalutation)
+	parameter.Add("KLanrede", body.KLSalutation)
 	parameter.Add("KLFirma", body.KLCompany)
-	parameter.Add("KLVorname", body.KFirstName)
-	parameter.Add("KLNachname", body.KLastName)
-	parameter.Add("KLStrasse", body.KStreet)
-	parameter.Add("KLStrasse2", body.KStreet2)
-	parameter.Add("KLPLZ", body.KZip)
-	parameter.Add("KLOrt", body.KLocation)
-	parameter.Add("KLBundesland", body.KState)
-	parameter.Add("KLLand", body.KCountry)
-	parameter.Add("KLTelefon", body.KPhone)
+	parameter.Add("KLVorname", body.KLFirstName)
+	parameter.Add("KLNachname", body.KLLastName)
+	parameter.Add("KLStrasse", body.KLStreet)
+	parameter.Add("KLStrasse2", body.KLStreet2)
+	parameter.Add("KLPLZ", body.KLZip)
+	parameter.Add("KLOrt", body.KLLocation)
+	parameter.Add("KLBundesland", body.KLState)
+	parameter.Add("KLLand", body.KLCountry)
+	parameter.Add("KLTelefon", body.KLPhone)
 	parameter.Add("Versandgruppe", body.ShippingGroup)
 	parameter.Add("Versandart", body.ShippingMethod)
 	parameter.Add("Versandkosten", body.ShippingCosts)
