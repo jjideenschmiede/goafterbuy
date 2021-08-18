@@ -26,21 +26,35 @@ type AddOrderBody struct {
 	ItemNo                 string
 	KUsername              string
 	KSalutation            string
+	KCompany               string
 	KFirstName             string
 	KLastName              string
 	KStreet                string
+	KStreet2               string
 	KZip                   string
 	KLocation              string
+	KState                 string
 	KCountry               string
 	KPhone                 string
+	KFax                   string
 	KEmail                 string
+	DeliveryAddress        string
+	KLCompany              string
+	KLFirstName            string
+	KLLastName             string
+	KLStreet               string
+	KLStreet2              string
+	KLZip                  string
+	KLLocation             string
+	KLState                string
+	KLCountry              string
+	KLPhone                string
 	ShippingGroup          string
 	ShippingMethod         string
 	ShippingCosts          string
 	NoShippingCalc         string
 	SoldCurrency           string
 	NoFeedback             string
-	DeliveryAddress        string
 	SetPay                 string
 	CustomerIdentification string
 	ArticleIdentification  string
@@ -95,21 +109,36 @@ func AddOrder(body *AddOrderBody) (*AddOrderReturn, error) {
 	parameter.Add("PosAnz", body.ItemNo)
 	parameter.Add("Kbenutzername", body.KUsername)
 	parameter.Add("Kanrede", body.KSalutation)
+	parameter.Add("KFirma", body.KCompany)
 	parameter.Add("KVorname", body.KFirstName)
 	parameter.Add("KNachname", body.KLastName)
 	parameter.Add("KStrasse", body.KStreet)
+	parameter.Add("KStrasse2", body.KStreet2)
 	parameter.Add("KPLZ", body.KZip)
 	parameter.Add("KOrt", body.KLocation)
+	parameter.Add("KBundesland", body.KState)
 	parameter.Add("KLand", body.KCountry)
 	parameter.Add("KTelefon", body.KPhone)
+	parameter.Add("Kfax", body.KFax)
 	parameter.Add("Kemail", body.KEmail)
+	parameter.Add("Lieferanschrift", body.DeliveryAddress)
+	parameter.Add("KLanrede", body.KSalutation)
+	parameter.Add("KLFirma", body.KLCompany)
+	parameter.Add("KLVorname", body.KFirstName)
+	parameter.Add("KLNachname", body.KLastName)
+	parameter.Add("KLStrasse", body.KStreet)
+	parameter.Add("KLStrasse2", body.KStreet2)
+	parameter.Add("KLPLZ", body.KZip)
+	parameter.Add("KLOrt", body.KLocation)
+	parameter.Add("KLBundesland", body.KState)
+	parameter.Add("KLLand", body.KCountry)
+	parameter.Add("KLTelefon", body.KPhone)
 	parameter.Add("Versandgruppe", body.ShippingGroup)
 	parameter.Add("Versandart", body.ShippingMethod)
 	parameter.Add("Versandkosten", body.ShippingCosts)
 	parameter.Add("NoVersandCalc", body.NoShippingCalc)
 	parameter.Add("SoldCurrency", body.SoldCurrency)
 	parameter.Add("NoFeedback", body.NoFeedback)
-	parameter.Add("Lieferanschrift", body.DeliveryAddress)
 	parameter.Add("SetPay", body.SetPay)
 	parameter.Add("Kundenerkennung", body.CustomerIdentification)
 	parameter.Add("Artikelerkennung", body.ArticleIdentification)
