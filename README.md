@@ -155,6 +155,7 @@ body := &goafterbuy.AddOrderBody{
     KFax:                   "",
     KEmail:                 "",
     DeliveryAddress:        "",
+    KLSalutation:           "",
     KLCompany:              "",
     KLFirstName:            "",
     KLLastName:             "",
