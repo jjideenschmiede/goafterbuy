@@ -70,12 +70,12 @@ type CatalogsReturnCatalog struct {
 }
 
 // Catalogs is to get all catalogs from ab interface
-func Catalogs(body *CatalogsBody) (*CatalogsReturn, error) {
+func Catalogs(body CatalogsBody) (CatalogsReturn, error) {
 
 	// Convert body
 	convert, err := xml.Marshal(body)
 	if err != nil {
-		return nil, err
+		return CatalogsReturn{}, err
 	}
 
 	// Config new request
@@ -84,7 +84,7 @@ func Catalogs(body *CatalogsBody) (*CatalogsReturn, error) {
 	// Send new request
 	response, err := c.Send()
 	if err != nil {
-		return nil, err
+		return CatalogsReturn{}, err
 	}
 
 	// Close request body
@@ -95,10 +95,10 @@ func Catalogs(body *CatalogsBody) (*CatalogsReturn, error) {
 
 	err = xml.NewDecoder(response.Body).Decode(&decode)
 	if err != nil {
-		return nil, err
+		return CatalogsReturn{}, err
 	}
 
 	// Return data
-	return &decode, nil
+	return decode, nil
 
 }

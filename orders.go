@@ -92,12 +92,12 @@ type AddOrderReturnData struct {
 }
 
 // AddOrder is to add a new order via shop interface
-func AddOrder(body *AddOrderBody) (*AddOrderReturn, error) {
+func AddOrder(body AddOrderBody) (AddOrderReturn, error) {
 
 	// Define request
 	request, err := http.NewRequest(method, shopInterfaceBaseUrl, nil)
 	if err != nil {
-		return nil, err
+		return AddOrderReturn{}, err
 	}
 
 	// Set url parameter
@@ -169,7 +169,7 @@ func AddOrder(body *AddOrderBody) (*AddOrderReturn, error) {
 	// Send new request
 	response, err := c.Send()
 	if err != nil {
-		return nil, err
+		return AddOrderReturn{}, err
 	}
 
 	// Close request body
@@ -180,10 +180,10 @@ func AddOrder(body *AddOrderBody) (*AddOrderReturn, error) {
 
 	err = xml.NewDecoder(response.Body).Decode(&decode)
 	if err != nil {
-		return nil, err
+		return AddOrderReturn{}, err
 	}
 
 	// Return data
-	return &decode, nil
+	return decode, nil
 
 }

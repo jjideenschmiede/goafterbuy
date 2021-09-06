@@ -185,13 +185,13 @@ type ProductsReturnPaginationResult struct {
 	PageNumber           int      `xml:"PageNumber"`
 }
 
-// Products is to get all products from ab interface
-func Products(body *ProductsBody) (*ProductsReturn, error) {
+// Products are to get all products from ab interface
+func Products(body ProductsBody) (ProductsReturn, error) {
 
 	// Convert body
 	convert, err := xml.Marshal(body)
 	if err != nil {
-		return nil, err
+		return ProductsReturn{}, err
 	}
 
 	// Config new request
@@ -200,7 +200,7 @@ func Products(body *ProductsBody) (*ProductsReturn, error) {
 	// Send new request
 	response, err := c.Send()
 	if err != nil {
-		return nil, err
+		return ProductsReturn{}, err
 	}
 
 	// Close request body
@@ -211,10 +211,10 @@ func Products(body *ProductsBody) (*ProductsReturn, error) {
 
 	err = xml.NewDecoder(response.Body).Decode(&decode)
 	if err != nil {
-		return nil, err
+		return ProductsReturn{}, err
 	}
 
 	// Return data
-	return &decode, nil
+	return decode, nil
 
 }
