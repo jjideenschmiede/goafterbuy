@@ -20,7 +20,7 @@ If you want to output multiple pages, then you need to adjust the details in goa
 
 ```go
 // Define products body
-body := &goafterbuy.ProductsBody{
+body := goafterbuy.ProductsBody{
     Request: goafterbuy.ProductsRequest{
         AfterbuyGlobal: goafterbuy.AfterbuyGlobal{
             PartnerId:       0,
@@ -57,7 +57,7 @@ If you want to read out a stock, then you can do this here via the ID of the pro
 
 ```go
 // Define stock body
-body := &goafterbuy.StockBody{
+body := goafterbuy.StockBody{
     Request: goafterbuy.StockRequest{
         AfterbuyGlobal: goafterbuy.AfterbuyGlobal{
             PartnerId:       0,
@@ -93,7 +93,7 @@ To enable them to read the catalogs, you can use the following function.
 
 ```go
 // Define catalogs body
-body := &goafterbuy.CatalogsBody{
+body := goafterbuy.CatalogsBody{
     Request: goafterbuy.CatalogsRequest{
         AfterbuyGlobal: goafterbuy.AfterbuyGlobal{
             PartnerId:       0,
@@ -134,7 +134,7 @@ If an order is to be returned to the system, then this can be done as follows. P
 
 ```go
 // Define order body
-body := &goafterbuy.AddOrderBody{
+body := goafterbuy.AddOrderBody{
     Action:                 "",
     PartnerId:              "",
     PartnerPass:            "",
