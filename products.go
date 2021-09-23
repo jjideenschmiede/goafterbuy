@@ -102,6 +102,11 @@ type ProductsReturnProduct struct {
 	FreeValue3                         string                        `xml:"FreeValue3"`
 	FreeValue4                         string                        `xml:"FreeValue4"`
 	FreeValue5                         string                        `xml:"FreeValue5"`
+	FreeValue6                         string                        `xml:"FreeValue6"`
+	FreeValue7                         string                        `xml:"FreeValue7"`
+	FreeValue8                         string                        `xml:"FreeValue8"`
+	FreeValue9                         string                        `xml:"FreeValue9"`
+	FreeValue10                        string                        `xml:"FreeValue10"`
 	DeliveryTime                       string                        `xml:"DeliveryTime"`
 	Stocklocation1                     string                        `xml:"Stocklocation_1"`
 	Stocklocation2                     string                        `xml:"Stocklocation_2"`
