@@ -178,6 +178,79 @@ type SoldItemReturnOrderOriginalCurrency struct {
 	PayedAmount             string   `xml:"PayedAmount"`
 }
 
+// UpdateSoldItemBody is to send the body data
+type UpdateSoldItemBody struct {
+	Request UpdateSoldItemBodyRequest `xml:"Request"`
+}
+
+type UpdateSoldItemBodyRequest struct {
+	AfterbuyGlobal AfterbuyGlobal           `xml:"AfterbuyGlobal"`
+	Orders         UpdateSoldItemBodyOrders `xml:"Orders"`
+}
+
+type UpdateSoldItemBodyOrders struct {
+	Order UpdateSoldItemBodyOrder `xml:"Order"`
+}
+
+type UpdateSoldItemBodyOrder struct {
+	OrderId          int                             `xml:"OrderID,omitempty"`
+	ItemId           int                             `xml:"ItemID,omitempty"`
+	AdditionalInfo   string                          `xml:"AdditionalInfo,omitempty"`
+	MailDate         string                          `xml:"MailDate,omitempty"`
+	ReminderMailDate string                          `xml:"ReminderMailDate,omitempty"`
+	UserComment      string                          `xml:"UserComment,omitempty"`
+	OrderMemo        string                          `xml:"OrderMemo,omitempty"`
+	InvoiceMemo      string                          `xml:"InvoiceMemo,omitempty"`
+	InvoiceNumber    int                             `xml:"InvoiceNumber,omitempty"`
+	OrderExported    int                             `xml:"OrderExported,omitempty"`
+	InvoiceDate      string                          `xml:"InvoiceDate,omitempty"`
+	HideOrder        int                             `xml:"HideOrder,omitempty"`
+	Reminder1Date    string                          `xml:"Reminder1Date,omitempty"`
+	Reminder2Date    string                          `xml:"Reminder2Date,omitempty"`
+	XmlDate          string                          `xml:"XmlDate,omitempty"`
+	BuyerInfo        *UpdateSoldItemBodyBuyerInfo    `xml:"BuyerInfo,omitempty"`
+	PaymentInfo      *UpdateSoldItemBodyPaymentInfo  `xml:"PaymentInfo,omitempty"`
+	ShippingInfo     *UpdateSoldItemBodyShippingInfo `xml:"ShippingInfo,omitempty"`
+}
+
+type UpdateSoldItemBodyBuyerInfo struct {
+	ShippingAddress UpdateSoldItemBodyShippingAddress `xml:"ShippingAddress,omitempty"`
+}
+
+type UpdateSoldItemBodyShippingAddress struct {
+	FirstName  string `xml:"FirstName,omitempty"`
+	LastName   string `xml:"LastName,omitempty"`
+	Company    string `xml:"Company,omitempty"`
+	Street     string `xml:"Street,omitempty"`
+	PostalCode string `xml:"PostalCode,omitempty"`
+	City       string `xml:"City,omitempty"`
+	Country    string `xml:"Country,omitempty"`
+}
+
+type UpdateSoldItemBodyPaymentInfo struct {
+	PaymentMethod          string `xml:"PaymentMethod,omitempty"`
+	PaymentDate            string `xml:"PaymentDate,omitempty"`
+	AlreadyPaid            string `xml:"AlreadyPaid,omitempty"`
+	PaymentAadditionalCost string `xml:"PaymentAadditionalCost,omitempty"`
+}
+
+type UpdateSoldItemBodyShippingInfo struct {
+	ShippingMethod   string `xml:"ShippingMethod,omitempty"`
+	ShippingGroup    string `xml:"ShippingGroup,omitempty"`
+	ShippingCost     string `xml:"ShippingCost,omitempty"`
+	DeliveryDate     string `xml:"DeliveryDate,omitempty"`
+	EBayShippingCost string `xml:"eBayShippingCost,omitempty"`
+}
+
+// UpdateSoldItemReturn is to decode the xml return
+type UpdateSoldItemReturn struct {
+	XmlName    xml.Name    `xml:"Afterbuy"`
+	CallStatus string      `xml:"CallStatus"`
+	CallName   string      `xml:"CallName"`
+	VersionId  int         `xml:"VersionID"`
+	Result     interface{} `xml:"Result"`
+}
+
 // SoldItem is to get a sold item by id
 func SoldItem(body SoldItemBody) (SoldItemReturn, error) {
 
@@ -205,6 +278,40 @@ func SoldItem(body SoldItemBody) (SoldItemReturn, error) {
 	err = xml.NewDecoder(response.Body).Decode(&decode)
 	if err != nil {
 		return SoldItemReturn{}, err
+	}
+
+	// Return data
+	return decode, nil
+
+}
+
+// UpdateSoldItem is to update a sold item
+func UpdateSoldItem(body UpdateSoldItemBody) (UpdateSoldItemReturn, error) {
+
+	// Convert body
+	convert, err := xml.Marshal(body)
+	if err != nil {
+		return UpdateSoldItemReturn{}, err
+	}
+
+	// Config new request
+	c := Config{nil, convert}
+
+	// Send new request
+	response, err := c.Send()
+	if err != nil {
+		return UpdateSoldItemReturn{}, err
+	}
+
+	// Close request body
+	defer response.Body.Close()
+
+	// Decode data
+	var decode UpdateSoldItemReturn
+
+	err = xml.NewDecoder(response.Body).Decode(&decode)
+	if err != nil {
+		return UpdateSoldItemReturn{}, err
 	}
 
 	// Return data
