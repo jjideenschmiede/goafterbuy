@@ -24,13 +24,27 @@ const (
 
 // AfterbuyGlobal is to define afterbuy global data
 type AfterbuyGlobal struct {
-	PartnerId       int    `xml:"PartnerID"`
-	PartnerPassword string `xml:"PartnerPassword"`
-	UserId          string `xml:"UserID"`
-	UserPassword    string `xml:"UserPassword"`
-	CallName        string `xml:"CallName"`
-	DetailLevel     int    `xml:"DetailLevel"`
-	ErrorLanguage   string `xml:"ErrorLanguage"`
+	PartnerId       int    `xml:"PartnerID,omitempty"`
+	PartnerPassword string `xml:"PartnerPassword,omitempty"`
+	UserId          string `xml:"UserID,omitempty"`
+	UserPassword    string `xml:"UserPassword,omitempty"`
+	CallName        string `xml:"CallName,omitempty"`
+	DetailLevel     int    `xml:"DetailLevel,omitempty"`
+	ErrorLanguage   string `xml:"ErrorLanguage,omitempty"`
+}
+
+// DataFilter is to define the afterbuy data filter
+type DataFilter struct {
+	Filter DataFilterFilter `xml:"Filter,omitempty"`
+}
+
+type DataFilterFilter struct {
+	FilterName   string                 `xml:"FilterName,omitempty"`
+	FilterValues DataFilterFilterValues `xml:"FilterValues,omitempty"`
+}
+
+type DataFilterFilterValues struct {
+	FilterValue int `xml:"FilterValue,omitempty"`
 }
 
 // Config is to define the request data

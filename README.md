@@ -126,6 +126,42 @@ if err != nil {
 }
 ```
 
+## Get sold item
+
+If you want to read out an order based on the Id, then you can use the following function for this.
+
+```go
+// Define sold item request body
+body := SoldItemBody{
+    Request: SoldItemRequest{
+        AfterbuyGlobal: AfterbuyGlobal{
+            PartnerId:       0,
+            PartnerPassword: "",
+            UserId:          "",
+            UserPassword:    "",
+            CallName:        "GetSoldItems",
+            ErrorLanguage:   "DE",
+        },
+        DataFilter: DataFilter{
+            Filter: DataFilterFilter{
+                FilterName: "OrderID",
+                FilterValues: DataFilterFilterValues{
+                    FilterValue: 558996468,
+                },
+            },
+        },
+    },
+}
+
+// Get sold item
+soldItem, err := SoldItem(body)
+if err != nil {
+    fmt.Println(err)
+} else {
+    fmt.Println(soldItem.Result.Orders.Order.AdditionalInfo)
+}
+```
+
 ## Add order
 
 If an order is to be returned to the system, then this can be done as follows. Please inform yourself [here](https://xmldoku.afterbuy.de/shopdoku/) how it works.
