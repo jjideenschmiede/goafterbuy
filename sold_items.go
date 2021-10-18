@@ -244,11 +244,28 @@ type UpdateSoldItemBodyShippingInfo struct {
 
 // UpdateSoldItemReturn is to decode the xml return
 type UpdateSoldItemReturn struct {
-	XmlName    xml.Name    `xml:"Afterbuy"`
-	CallStatus string      `xml:"CallStatus"`
-	CallName   string      `xml:"CallName"`
-	VersionId  int         `xml:"VersionID"`
-	Result     interface{} `xml:"Result"`
+	XmlName    xml.Name                   `xml:"Afterbuy"`
+	CallStatus string                     `xml:"CallStatus"`
+	CallName   string                     `xml:"CallName"`
+	VersionId  int                        `xml:"VersionID"`
+	Result     UpdateSoldItemReturnResult `xml:"Result,omitempty"`
+}
+
+type UpdateSoldItemReturnResult struct {
+	XmlName   xml.Name                      `xml:"Result"`
+	ErrorList UpdateSoldItemReturnErrorList `xml:"ErrorList"`
+}
+
+type UpdateSoldItemReturnErrorList struct {
+	XmlName xml.Name                    `xml:"ErrorList"`
+	Error   []UpdateSoldItemReturnError `xml:"Error"`
+}
+
+type UpdateSoldItemReturnError struct {
+	XmlName              xml.Name `xml:"Error"`
+	ErrorCode            int      `xml:"ErrorCode"`
+	ErrorDescription     string   `xml:"ErrorDescription"`
+	ErrorLongDescription string   `xml:"ErrorLongDescription"`
 }
 
 // SoldItem is to get a sold item by id
