@@ -162,6 +162,41 @@ if err != nil {
 }
 ```
 
+## Update sold item
+
+If you want to update an order, you can do this using the following function. A palette of attributes can be sent with the order.
+
+```go
+// Define update sold item request body
+body := UpdateSoldItemBody{
+    UpdateSoldItemBodyRequest{
+        AfterbuyGlobal: AfterbuyGlobal{
+            PartnerId:       0,
+            PartnerPassword: "",
+            UserId:          "",
+            UserPassword:    "",
+            CallName:        "UpdateSoldItems",
+            ErrorLanguage:   "DE",
+        },
+        Orders: UpdateSoldItemBodyOrders{
+            UpdateSoldItemBodyOrder{
+                OrderId:        523371348,
+                ItemId:         523371348,
+                AdditionalInfo: "Kleiner Pimmeldachs",
+            },
+        },
+    },
+}
+
+// Get sold item
+soldItem, err := UpdateSoldItem(body)
+if err != nil {
+    fmt.Println(err)
+} else {
+    fmt.Println(soldItem)
+}
+```
+
 ## Add order
 
 If an order is to be returned to the system, then this can be done as follows. Please inform yourself [here](https://xmldoku.afterbuy.de/shopdoku/) how it works.
