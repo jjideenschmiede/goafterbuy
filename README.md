@@ -1,5 +1,7 @@
 # goafterbuy
 
+[![Go](https://github.com/jjideenschmiede/goafterbuy/actions/workflows/go.yml/badge.svg)](https://github.com/jjideenschmiede/goafterbuy/actions/workflows/go.yml) [![Go Report Card](https://goreportcard.com/badge/github.com/jjideenschmiede/goafterbuy)](https://goreportcard.com/report/github.com/jjideenschmiede/goafterbuy) [![Go Doc](https://godoc.org/github.com/jjideenschmiede/goafterbuy?status.svg)](https://pkg.go.dev/github.com/jjideenschmiede/goafterbuy)
+
 ## Install
 
 ```console
@@ -132,9 +134,9 @@ If you want to read out an order based on the Id, then you can use the following
 
 ```go
 // Define sold item request body
-body := SoldItemBody{
-    Request: SoldItemRequest{
-        AfterbuyGlobal: AfterbuyGlobal{
+body := goafterbuy.SoldItemBody{
+    Request: goafterbuy.SoldItemRequest{
+        AfterbuyGlobal: goafterbuy.AfterbuyGlobal{
             PartnerId:       0,
             PartnerPassword: "",
             UserId:          "",
@@ -142,10 +144,10 @@ body := SoldItemBody{
             CallName:        "GetSoldItems",
             ErrorLanguage:   "DE",
         },
-        DataFilter: DataFilter{
-            Filter: DataFilterFilter{
+        DataFilter: goafterbuy.DataFilter{
+            Filter: goafterbuy.DataFilterFilter{
                 FilterName: "OrderID",
-                FilterValues: DataFilterFilterValues{
+                FilterValues: goafterbuy.DataFilterFilterValues{
                     FilterValue: 558996468,
                 },
             },
@@ -154,7 +156,7 @@ body := SoldItemBody{
 }
 
 // Get sold item
-soldItem, err := SoldItem(body)
+soldItem, err := goafterbuy.SoldItem(body)
 if err != nil {
     fmt.Println(err)
 } else {
@@ -168,9 +170,9 @@ If you want to update an order, you can do this using the following function. A 
 
 ```go
 // Define update sold item request body
-body := UpdateSoldItemBody{
-    UpdateSoldItemBodyRequest{
-        AfterbuyGlobal: AfterbuyGlobal{
+body := goafterbuy.UpdateSoldItemBody{
+    goafterbuy.UpdateSoldItemBodyRequest{
+        AfterbuyGlobal: goafterbuy.AfterbuyGlobal{
             PartnerId:       0,
             PartnerPassword: "",
             UserId:          "",
@@ -178,8 +180,8 @@ body := UpdateSoldItemBody{
             CallName:        "UpdateSoldItems",
             ErrorLanguage:   "DE",
         },
-        Orders: UpdateSoldItemBodyOrders{
-            UpdateSoldItemBodyOrder{
+        Orders: goafterbuy.UpdateSoldItemBodyOrders{
+            goafterbuy.UpdateSoldItemBodyOrder{
                 OrderId:        523371348,
                 ItemId:         523371348,
                 AdditionalInfo: "Kleiner Pimmeldachs",
@@ -189,7 +191,7 @@ body := UpdateSoldItemBody{
 }
 
 // Get sold item
-soldItem, err := UpdateSoldItem(body)
+soldItem, err := goafterbuy.UpdateSoldItem(body)
 if err != nil {
     fmt.Println(err)
 } else {
