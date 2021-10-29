@@ -1,6 +1,6 @@
 # goafterbuy
 
-[![Go](https://github.com/jjideenschmiede/goafterbuy/actions/workflows/go.yml/badge.svg)](https://github.com/jjideenschmiede/goafterbuy/actions/workflows/go.yml) [![Go Report Card](https://goreportcard.com/badge/github.com/jjideenschmiede/goafterbuy)](https://goreportcard.com/report/github.com/jjideenschmiede/goafterbuy) [![Go Doc](https://godoc.org/github.com/jjideenschmiede/goafterbuy?status.svg)](https://pkg.go.dev/github.com/jjideenschmiede/goafterbuy)
+[![Go](https://github.com/jjideenschmiede/goafterbuy/actions/workflows/go.yml/badge.svg)](https://github.com/jjideenschmiede/goafterbuy/actions/workflows/go.yml) [![Go Report Card](https://goreportcard.com/badge/github.com/jjideenschmiede/goafterbuy)](https://goreportcard.com/report/github.com/jjideenschmiede/goafterbuy) [![Go Reference](https://pkg.go.dev/badge/github.com/jjideenschmiede/goafterbuy.svg)](https://pkg.go.dev/github.com/jjideenschmiede/goafterbuy)
 
 ## Install
 
