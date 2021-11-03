@@ -148,7 +148,7 @@ body := goafterbuy.ShippingServicesBody{
 }
 
 // Get afterbuy shipping services
-soldItem, err := goafterbuy.ShippingServices(body)
+shippingServices, err := goafterbuy.ShippingServices(body)
 if err != nil {
     fmt.Println(err)
 } else {
