@@ -128,6 +128,34 @@ if err != nil {
 }
 ```
 
+## Get shipping services
+
+To get the shipping services from afterbuy.
+
+```go
+// Define sold item request body
+body := goafterbuy.ShippingServicesBody{
+    Request: goafterbuy.ShippingServicesRequest{
+        AfterbuyGlobal: goafterbuy.AfterbuyGlobal{
+            PartnerId:       0,
+            PartnerPassword: "",
+            UserId:          "",
+            UserPassword:    "",
+            CallName:        "GetShippingServices",
+            ErrorLanguage:   "DE",
+        },
+    },
+}
+
+// Get afterbuy shipping services
+soldItem, err := goafterbuy.ShippingServices(body)
+if err != nil {
+    fmt.Println(err)
+} else {
+    fmt.Println(shippingServices)
+}
+```
+
 ## Get sold item
 
 If you want to read out an order based on the Id, then you can use the following function for this.
