@@ -75,7 +75,7 @@ type ProductsReturnProduct struct {
 	Discontinued                       int                            `xml:"Discontinued"`
 	MergeStock                         int                            `xml:"MergeStock"`
 	UnitOfQuantity                     string                         `xml:"UnitOfQuantity"`
-	BasepriceFactor                    int                            `xml:"BasepriceFactor"`
+	BasepriceFactor                    string                         `xml:"BasepriceFactor"`
 	MinimumStock                       int                            `xml:"MinimumStock"`
 	MinimumOrderQuantity               int                            `xml:"MinimumOrderQuantity"`
 	FullFilmentQuantity                int                            `xml:"FullFilmentQuantity"`
