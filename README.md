@@ -190,7 +190,7 @@ body.Request.DataFilter.Filter = append(body.Request.DataFilter.Filter, goafterb
 }, goafterbuy.SoldItemsFilter{
     FilterName: "RangeID",
     FilterValues: goafterbuy.SoldItemsFilterValues{
-        ValueFrom: "525914526",
+        ValueFrom: 525914526,
     },
 })
 

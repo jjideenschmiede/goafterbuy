@@ -37,7 +37,7 @@ type SoldItemsFilterValues struct {
 	DateFrom    string `xml:"DateFrom,omitempty"`
 	DateTo      string `xml:"DateTo,omitempty"`
 	FilterValue string `xml:"FilterValue,omitempty"`
-	ValueFrom   string `xml:"ValueFrom,omitempty"`
+	ValueFrom   int    `xml:"ValueFrom,omitempty"`
 }
 
 // SoldItemsReturn is to decode the xml data
