@@ -155,6 +155,54 @@ if err != nil {
 }
 ```
 
+## Get sold items
+
+You can use this function to read out all purchase orders in a specific period.
+
+```go
+// Define sold items body
+  body := SoldItemsBody{
+      Request: SoldItemsRequest{
+          AfterbuyGlobal: AfterbuyGlobal{
+              PartnerId:       0,
+              PartnerPassword: "",
+              UserId:          "",
+              UserPassword:    "",
+              CallName:        "GetSoldItems",
+              DetailLevel:     0,
+              ErrorLanguage:   "DE",
+          },
+          DataFilter: SoldItemsDataFilter{
+              Filter: []SoldItemsFilter{},
+          },
+          MaxSoldItems: 100,
+      },
+  }
+
+  // Add filter
+  body.Request.DataFilter.Filter = append(body.Request.DataFilter.Filter, SoldItemsFilter{
+      FilterName: "DateFilter",
+      FilterValues: SoldItemsFilterValues{
+          DateFrom:    "01.11.2021 00:00:00",
+          DateTo:      "01.12.2021 23:59:59",
+          FilterValue: "PayDate",
+      },
+  }, SoldItemsFilter{
+      FilterName: "RangeID",
+      FilterValues: SoldItemsFilterValues{
+          ValueFrom: "525914526",
+      },
+  })
+
+  // Get afterbuy sold items
+  soldItems, err := SoldItems(body)
+  if err != nil {
+      fmt.Println(err)
+  } else {
+      fmt.Println(soldItems)
+  }
+```
+
 ## Get sold item
 
 If you want to read out an order based on the Id, then you can use the following function for this.
