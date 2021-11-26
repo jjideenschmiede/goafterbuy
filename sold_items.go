@@ -98,8 +98,9 @@ type SoldItemsReturnPaymentInfo struct {
 }
 
 type SoldItemsReturnBuyerInfo struct {
-	XmlName        xml.Name                      `xml:"BuyerInfo"`
-	BillingAddress SoldItemsReturnBillingAddress `xml:"BillingAddress"`
+	XmlName         xml.Name                       `xml:"BuyerInfo"`
+	BillingAddress  SoldItemsReturnBillingAddress  `xml:"BillingAddress"`
+	ShippingAddress SoldItemsReturnShippingAddress `xml:"ShippingAddress"`
 }
 
 type SoldItemsReturnBillingAddress struct {
@@ -123,6 +124,21 @@ type SoldItemsReturnBillingAddress struct {
 	Mail              string   `xml:"Mail"`
 	IsMerchant        int      `xml:"IsMerchant"`
 	TaxIdNumber       string   `xml:"TaxIDNumber"`
+}
+
+type SoldItemsReturnShippingAddress struct {
+	XmlName         xml.Name `xml:"ShippingAddress"`
+	FirstName       string   `xml:"FirstName"`
+	LastName        string   `xml:"LastName"`
+	Company         string   `xml:"Company"`
+	Street          string   `xml:"Street"`
+	Street2         string   `xml:"Street2"`
+	PostalCode      string   `xml:"PostalCode"`
+	City            string   `xml:"City"`
+	StateOrProvince string   `xml:"StateOrProvince"`
+	Country         string   `xml:"Country"`
+	CountryISO      string   `xml:"CountryISO"`
+	TaxIDNumber     string   `xml:"TaxIDNumber"`
 }
 
 type SoldItemsReturnSoldItems struct {
@@ -276,8 +292,9 @@ type SoldItemReturnPaymentInfo struct {
 }
 
 type SoldItemReturnBuyerInfo struct {
-	XmlName        xml.Name                     `xml:"BuyerInfo"`
-	BillingAddress SoldItemReturnBillingAddress `xml:"BillingAddress"`
+	XmlName         xml.Name                      `xml:"BuyerInfo"`
+	BillingAddress  SoldItemReturnBillingAddress  `xml:"BillingAddress"`
+	ShippingAddress SoldItemReturnShippingAddress `xml:"ShippingAddress"`
 }
 
 type SoldItemReturnBillingAddress struct {
@@ -301,6 +318,21 @@ type SoldItemReturnBillingAddress struct {
 	Mail              string   `xml:"Mail"`
 	IsMerchant        int      `xml:"IsMerchant"`
 	TaxIdNumber       string   `xml:"TaxIDNumber"`
+}
+
+type SoldItemReturnShippingAddress struct {
+	XmlName         xml.Name `xml:"ShippingAddress"`
+	FirstName       string   `xml:"FirstName"`
+	LastName        string   `xml:"LastName"`
+	Company         string   `xml:"Company"`
+	Street          string   `xml:"Street"`
+	Street2         string   `xml:"Street2"`
+	PostalCode      string   `xml:"PostalCode"`
+	City            string   `xml:"City"`
+	StateOrProvince string   `xml:"StateOrProvince"`
+	Country         string   `xml:"Country"`
+	CountryISO      string   `xml:"CountryISO"`
+	TaxIDNumber     string   `xml:"TaxIDNumber"`
 }
 
 type SoldItemReturnSoldItems struct {
