@@ -33,20 +33,6 @@ type AfterbuyGlobal struct {
 	ErrorLanguage   string `xml:"ErrorLanguage,omitempty"`
 }
 
-// DataFilter is to define the afterbuy data filter
-type DataFilter struct {
-	Filter DataFilterFilter `xml:"Filter,omitempty"`
-}
-
-type DataFilterFilter struct {
-	FilterName   string                 `xml:"FilterName,omitempty"`
-	FilterValues DataFilterFilterValues `xml:"FilterValues,omitempty"`
-}
-
-type DataFilterFilterValues struct {
-	FilterValue int `xml:"FilterValue,omitempty"`
-}
-
 // Config is to define the request data
 type Config struct {
 	Request *http.Request
