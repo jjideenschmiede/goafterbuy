@@ -142,8 +142,8 @@ type SoldItemsReturnShippingAddress struct {
 }
 
 type SoldItemsReturnSoldItems struct {
-	XmlName  xml.Name                `xml:"SoldItems"`
-	SoldItem SoldItemsReturnSoldItem `xml:"SoldItem"`
+	XmlName  xml.Name                  `xml:"SoldItems"`
+	SoldItem []SoldItemsReturnSoldItem `xml:"SoldItem"`
 }
 
 type SoldItemsReturnSoldItem struct {
@@ -336,8 +336,8 @@ type SoldItemReturnShippingAddress struct {
 }
 
 type SoldItemReturnSoldItems struct {
-	XmlName  xml.Name               `xml:"SoldItems"`
-	SoldItem SoldItemReturnSoldItem `xml:"SoldItem"`
+	XmlName  xml.Name                 `xml:"SoldItems"`
+	SoldItem []SoldItemReturnSoldItem `xml:"SoldItem"`
 }
 
 type SoldItemReturnSoldItem struct {
