@@ -142,8 +142,9 @@ type SoldItemsReturnShippingAddress struct {
 }
 
 type SoldItemsReturnSoldItems struct {
-	XmlName  xml.Name                  `xml:"SoldItems"`
-	SoldItem []SoldItemsReturnSoldItem `xml:"SoldItem"`
+	XmlName      xml.Name                  `xml:"SoldItems"`
+	SoldItem     []SoldItemsReturnSoldItem `xml:"SoldItem"`
+	ItemsInOrder int                       `xml:"ItemsInOrder"`
 }
 
 type SoldItemsReturnSoldItem struct {
@@ -170,6 +171,7 @@ type SoldItemsReturnSoldItem struct {
 	ItemWeight              string                              `xml:"item_weight"`
 	ItemModDate             string                              `xml:"ItemModDate"`
 	ItemPlatformName        string                              `xml:"ItemPlatformName"`
+	ItemLink                string                              `xml:"ItemLink"`
 	EBayFeedbackCompleted   int                                 `xml:"eBayFeedbackCompleted"`
 	EBayFeedbackReceived    int                                 `xml:"eBayFeedbackReceived"`
 	ShopProductDetails      SoldItemsReturnShopProductDetails   `xml:"ShopProductDetails"`
@@ -183,11 +185,29 @@ type SoldItemsReturnItemOriginalCurrency struct {
 }
 
 type SoldItemsReturnShopProductDetails struct {
-	ProductId       int    `xml:"product_id"`
-	Name            string `xml:"Name"`
-	Ean             string `xml:"EAN"`
-	Anr             int    `xml:"Anr"`
-	BasepriceFactor int    `xml:"BasepriceFactor"`
+	ProductId       int                            `xml:"product_id"`
+	Name            string                         `xml:"Name"`
+	Ean             string                         `xml:"EAN"`
+	Anr             int                            `xml:"Anr"`
+	BasepriceFactor int                            `xml:"BasepriceFactor"`
+	BaseProductData SoldItemsReturnBaseProductData `xml:"BaseProductData"`
+}
+
+type SoldItemsReturnBaseProductData struct {
+	XmlName         xml.Name                    `xml:"BaseProductData"`
+	BaseProductType int                         `xml:"BaseProductType"`
+	ChildProduct    SoldItemsReturnChildProduct `xml:"ChildProduct"`
+}
+
+type SoldItemsReturnChildProduct struct {
+	XmlName          xml.Name `xml:"ChildProduct"`
+	ProductId        int      `xml:"ProductID"`
+	ProductANr       int      `xml:"ProductANr"`
+	ProductName      string   `xml:"ProductName"`
+	ProductQuantity  int      `xml:"ProductQuantity"`
+	ProductVat       int      `xml:"ProductVAT"`
+	ProductWeight    string   `xml:"ProductWeight"`
+	ProductUnitPrice string   `xml:"ProductUnitPrice"`
 }
 
 type SoldItemsReturnShippingInfo struct {
@@ -336,8 +356,9 @@ type SoldItemReturnShippingAddress struct {
 }
 
 type SoldItemReturnSoldItems struct {
-	XmlName  xml.Name                 `xml:"SoldItems"`
-	SoldItem []SoldItemReturnSoldItem `xml:"SoldItem"`
+	XmlName      xml.Name                 `xml:"SoldItems"`
+	SoldItem     []SoldItemReturnSoldItem `xml:"SoldItem"`
+	ItemsInOrder int                      `xml:"ItemsInOrder"`
 }
 
 type SoldItemReturnSoldItem struct {
@@ -350,7 +371,7 @@ type SoldItemReturnSoldItem struct {
 	FulfillmentServiceLevel int                                `xml:"FulfillmentServiceLevel"`
 	IsAmazonInvoiced        bool                               `xml:"IsAmazonInvoiced"`
 	PlatformSpecificOrderId string                             `xml:"PlatformSpecificOrderId"`
-	EBayTransactiondD       int                                `xml:"eBayTransactionID"`
+	EBayTransactionId       int                                `xml:"eBayTransactionID"`
 	EBayPlusTransaction     bool                               `xml:"eBayPlusTransaction"`
 	InternalItemType        int                                `xml:"InternalItemType"`
 	UserDefinedFlag         int                                `xml:"UserDefinedFlag"`
@@ -360,10 +381,11 @@ type SoldItemReturnSoldItem struct {
 	ItemOriginalCurrency    SoldItemReturnItemOriginalCurrency `xml:"ItemOriginalCurrency"`
 	ItemEndDate             string                             `xml:"ItemEndDate"`
 	TaxRate                 string                             `xml:"TaxRate"`
-	TaxCollectedBy          int                                `xml:"tax_collected_by"`
-	ItemWeight              string                             `xml:"item_weight"`
+	TaxCollectedBy          int                                `xml:"TaxCollectedBy"`
+	ItemWeight              string                             `xml:"ItemWeight"`
 	ItemModDate             string                             `xml:"ItemModDate"`
 	ItemPlatformName        string                             `xml:"ItemPlatformName"`
+	ItemLink                string                             `xml:"ItemLink"`
 	EBayFeedbackCompleted   int                                `xml:"eBayFeedbackCompleted"`
 	EBayFeedbackReceived    int                                `xml:"eBayFeedbackReceived"`
 	ShopProductDetails      SoldItemReturnShopProductDetails   `xml:"ShopProductDetails"`
@@ -377,11 +399,30 @@ type SoldItemReturnItemOriginalCurrency struct {
 }
 
 type SoldItemReturnShopProductDetails struct {
-	ProductId       int    `xml:"product_id"`
-	Name            string `xml:"Name"`
-	Ean             string `xml:"EAN"`
-	Anr             int    `xml:"Anr"`
-	BasepriceFactor int    `xml:"BasepriceFactor"`
+	XmlName         xml.Name                      `xml:"ShopProductDetails"`
+	ProductId       int                           `xml:"ProductID"`
+	Name            string                        `xml:"Name"`
+	Ean             string                        `xml:"EAN"`
+	Anr             int                           `xml:"Anr"`
+	BasepriceFactor int                           `xml:"BasepriceFactor"`
+	BaseProductData SoldItemReturnBaseProductData `xml:"BaseProductData"`
+}
+
+type SoldItemReturnBaseProductData struct {
+	XmlName         xml.Name                   `xml:"BaseProductData"`
+	BaseProductType int                        `xml:"BaseProductType"`
+	ChildProduct    SoldItemReturnChildProduct `xml:"ChildProduct"`
+}
+
+type SoldItemReturnChildProduct struct {
+	XmlName          xml.Name `xml:"ChildProduct"`
+	ProductId        int      `xml:"ProductID"`
+	ProductANr       int      `xml:"ProductANr"`
+	ProductName      string   `xml:"ProductName"`
+	ProductQuantity  int      `xml:"ProductQuantity"`
+	ProductVat       int      `xml:"ProductVAT"`
+	ProductWeight    string   `xml:"ProductWeight"`
+	ProductUnitPrice string   `xml:"ProductUnitPrice"`
 }
 
 type SoldItemReturnShippingInfo struct {
