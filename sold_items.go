@@ -167,8 +167,8 @@ type SoldItemsReturnSoldItem struct {
 	ItemOriginalCurrency    SoldItemsReturnItemOriginalCurrency `xml:"ItemOriginalCurrency"`
 	ItemEndDate             string                              `xml:"ItemEndDate"`
 	TaxRate                 string                              `xml:"TaxRate"`
-	TaxCollectedBy          int                                 `xml:"tax_collected_by"`
-	ItemWeight              string                              `xml:"item_weight"`
+	TaxCollectedBy          int                                 `xml:"TaxCollectedBy"`
+	ItemWeight              string                              `xml:"ItemWeight"`
 	ItemModDate             string                              `xml:"ItemModDate"`
 	ItemPlatformName        string                              `xml:"ItemPlatformName"`
 	ItemLink                string                              `xml:"ItemLink"`
