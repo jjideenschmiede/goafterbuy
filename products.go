@@ -115,6 +115,7 @@ type ProductsReturnProduct struct {
 	Stocklocation4                     string                         `xml:"Stocklocation_4"`
 	ImageSmallUrl                      string                         `xml:"image_small_url"`
 	ImageLargeUrl                      string                         `xml:"ImageLargeURL"`
+	ProductPictures                    ProductsReturnProductPictures  `xml:"ProductPictures"`
 	AmazonStandardProductIdType        string                         `xml:"AmazonStandardProductIDType"`
 	AmazonStandardProductIdValue       string                         `xml:"AmazonStandardProductIDValue"`
 	ManufacturerStandardProductIdType  string                         `xml:"ManufacturerStandardProductIDType"`
@@ -124,6 +125,7 @@ type ProductsReturnProduct struct {
 	CountryOfOrigin                    string                         `xml:"CountryOfOrigin"`
 	LastSale                           string                         `xml:"LastSale"`
 	Catalogs                           ProductsReturnCatalogs         `xml:"Catalogs"`
+	Attributes                         ProductsReturnAttributes       `xml:"Attributes"`
 	Facebook                           int                            `xml:"Facebook"`
 	ManufacturerPartNumber             string                         `xml:"ManufacturerPartNumber"`
 	Condition                          int                            `xml:"Condition"`
@@ -191,9 +193,36 @@ type ProductsReturnScaledDiscount struct {
 	ScaledDPrice   string   `xml:"ScaledDPrice"`
 }
 
+type ProductsReturnProductPictures struct {
+	XmlName        xml.Name                       `xml:"ProductPictures"`
+	ProductPicture []ProductsReturnProductPicture `xml:"ProductPicture"`
+}
+
+type ProductsReturnProductPicture struct {
+	XmlName xml.Name `xml:"ProductPicture"`
+	Nr      int      `xml:"Nr"`
+	Type    int      `xml:"Type"`
+	Url     string   `xml:"Url"`
+	AltText string   `xml:"AltText"`
+}
+
 type ProductsReturnCatalogs struct {
 	XmlName   xml.Name `xml:"Catalogs"`
 	CatalogId int      `xml:"CatalogID"`
+}
+
+type ProductsReturnAttributes struct {
+	XmlName  xml.Name                 `xml:"Attributes"`
+	Attribut []ProductsReturnAttribut `xml:"Attribut"`
+}
+
+type ProductsReturnAttribut struct {
+	XmlName          xml.Name `xml:"Attribut"`
+	AttributName     string   `xml:"AttributName"`
+	AttributValue    string   `xml:"AttributValue"`
+	AttributType     int      `xml:"AttributType"`
+	AttributRequired int      `xml:"AttributRequired"`
+	AttributPosition int      `xml:"AttributPosition"`
 }
 
 type ProductsReturnPaginationResult struct {
