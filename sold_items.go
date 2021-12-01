@@ -242,15 +242,15 @@ type SoldItemRequest struct {
 }
 
 type SoldItemDataFilter struct {
-	Filter SoldItemDataFilterFilter `xml:"Filter,omitempty"`
+	Filter SoldItemFilter `xml:"Filter,omitempty"`
 }
 
-type SoldItemDataFilterFilter struct {
-	FilterName   string                         `xml:"FilterName,omitempty"`
-	FilterValues SoldItemDataFilterFilterValues `xml:"FilterValues,omitempty"`
+type SoldItemFilter struct {
+	FilterName   string               `xml:"FilterName,omitempty"`
+	FilterValues SoldItemFilterValues `xml:"FilterValues,omitempty"`
 }
 
-type SoldItemDataFilterFilterValues struct {
+type SoldItemFilterValues struct {
 	FilterValue int `xml:"FilterValue,omitempty"`
 }
 
