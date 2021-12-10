@@ -50,11 +50,16 @@ type AddOrderBody struct {
 	KLState                string
 	KLCountry              string
 	KLPhone                string
+	Comment                string
 	ShippingGroup          string
 	ShippingMethod         string
 	ShippingCosts          string
 	NoShippingCalc         string
 	SoldCurrency           string
+	VMemo                  string
+	OrderInfo1             string
+	OrderInfo2             string
+	OrderInfo3             string
 	NoFeedback             string
 	SetPay                 string
 	CustomerIdentification string
@@ -134,11 +139,16 @@ func AddOrder(body AddOrderBody) (AddOrderReturn, error) {
 	parameter.Add("KLBundesland", body.KLState)
 	parameter.Add("KLLand", body.KLCountry)
 	parameter.Add("KLTelefon", body.KLPhone)
+	parameter.Add("Kommentar", body.Comment)
 	parameter.Add("Versandgruppe", body.ShippingGroup)
 	parameter.Add("Versandart", body.ShippingMethod)
 	parameter.Add("Versandkosten", body.ShippingCosts)
 	parameter.Add("NoVersandCalc", body.NoShippingCalc)
 	parameter.Add("SoldCurrency", body.SoldCurrency)
+	parameter.Add("VMemo", body.VMemo)
+	parameter.Add("OrderInfo1", body.OrderInfo1)
+	parameter.Add("OrderInfo2", body.OrderInfo2)
+	parameter.Add("OrderInfo3", body.OrderInfo3)
 	parameter.Add("NoFeedback", body.NoFeedback)
 	parameter.Add("SetPay", body.SetPay)
 	parameter.Add("Kundenerkennung", body.CustomerIdentification)

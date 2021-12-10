@@ -282,7 +282,7 @@ If an order is to be returned to the system, then this can be done as follows. P
 
 ```go
 // Define order body
-body := goafterbuy.AddOrderBody{
+body := AddOrderBody{
     Action:                 "",
     PartnerId:              "",
     PartnerPass:            "",
@@ -314,18 +314,23 @@ body := goafterbuy.AddOrderBody{
     KLState:                "",
     KLCountry:              "",
     KLPhone:                "",
+    Comment:                "",
     ShippingGroup:          "",
     ShippingMethod:         "",
     ShippingCosts:          "",
     NoShippingCalc:         "",
     SoldCurrency:           "",
+    VMemo:                  "",
+    OrderInfo1:             "",
+    OrderInfo2:             "",
+    OrderInfo3:             "",
     NoFeedback:             "",
     SetPay:                 "",
     CustomerIdentification: "",
     ArticleIdentification:  "",
     StockType:              "",
     B1:                     "",
-    Items:                  []goafterbuy.AddOrderBodyItem{},
+    Items:                  []AddOrderBodyItem{},
 }
 
 body.Items = append(body.Items, goafterbuy.AddOrderBodyItem{
