@@ -32,6 +32,15 @@ body := goafterbuy.ProductsBody{
             DetailLevel:     0,
             ErrorLanguage:   "DE",
         },
+        DataFilter: &ProductsRequestDataFilter{
+             ProductsRequestFilter{
+                 FilterName: "Level",
+                 FilterValues: ProductsRequestFilterValues{
+                     LevelFrom: 0,
+                     LevelTo:   12,
+                 },
+             },
+        },
         MaxShopItems:                   100,
         SuppressBaseProductRelatedData: 0,
         PaginationEnabled:              1,

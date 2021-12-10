@@ -21,11 +21,26 @@ type ProductsBody struct {
 }
 
 type ProductsRequest struct {
-	AfterbuyGlobal                 AfterbuyGlobal `xml:"AfterbuyGlobal"`
-	MaxShopItems                   int            `xml:"MaxShopItems"`
-	SuppressBaseProductRelatedData int            `xml:"SuppressBaseProductRelatedData"`
-	PaginationEnabled              int            `xml:"PaginationEnabled"`
-	PageNumber                     int            `xml:"PageNumber"`
+	AfterbuyGlobal                 AfterbuyGlobal             `xml:"AfterbuyGlobal"`
+	DataFilter                     *ProductsRequestDataFilter `xml:"DataFilter"`
+	MaxShopItems                   int                        `xml:"MaxShopItems"`
+	SuppressBaseProductRelatedData int                        `xml:"SuppressBaseProductRelatedData"`
+	PaginationEnabled              int                        `xml:"PaginationEnabled"`
+	PageNumber                     int                        `xml:"PageNumber"`
+}
+
+type ProductsRequestDataFilter struct {
+	Filter ProductsRequestFilter `xml:"Filter"`
+}
+
+type ProductsRequestFilter struct {
+	FilterName   string                      `xml:"FilterName"`
+	FilterValues ProductsRequestFilterValues `xml:"FilterValues"`
+}
+
+type ProductsRequestFilterValues struct {
+	LevelFrom int `xml:"LevelFrom"`
+	LevelTo   int `xml:"LevelTo"`
 }
 
 // ProductsReturn is to decode the xml data
