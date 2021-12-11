@@ -32,10 +32,10 @@ body := goafterbuy.ProductsBody{
             DetailLevel:     0,
             ErrorLanguage:   "DE",
         },
-        DataFilter: &ProductsRequestDataFilter{
-             ProductsRequestFilter{
+        DataFilter: &goafterbuy.ProductsRequestDataFilter{
+			goafterbuy.ProductsRequestFilter{
                  FilterName: "Level",
-                 FilterValues: ProductsRequestFilterValues{
+                 FilterValues: goafterbuy.ProductsRequestFilterValues{
                      LevelFrom: 0,
                      LevelTo:   12,
                  },
