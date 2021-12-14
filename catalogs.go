@@ -60,13 +60,19 @@ type CatalogsReturnCatalogs struct {
 }
 
 type CatalogsReturnCatalog struct {
-	XmlName   xml.Name `xml:"Catalog"`
-	CatalogId int      `xml:"CatalogID"`
-	Name      string   `xml:"Name"`
-	ParentId  int      `xml:"ParentID"`
-	Level     int      `xml:"Level"`
-	Position  int      `xml:"Position"`
-	Show      int      `xml:"Show"`
+	XmlName        xml.Name `xml:"Catalog"`
+	CatalogId      int      `xml:"CatalogID"`
+	Name           string   `xml:"Name"`
+	Description    string   `xml:"Description"`
+	ParentId       int      `xml:"ParentID"`
+	Level          int      `xml:"Level"`
+	Position       int      `xml:"Position"`
+	AdditionalText string   `xml:"AdditionalText"`
+	Show           int      `xml:"Show"`
+	URL            string   `xml:"URL"`
+	Picture1       string   `xml:"Picture1"`
+	Picture2       string   `xml:"Picture2"`
+	TitlePicture   string   `xml:"TitlePicture"`
 }
 
 // Catalogs is to get all catalogs from ab interface
