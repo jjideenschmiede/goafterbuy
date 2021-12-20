@@ -268,7 +268,7 @@ body := goafterbuy.UpdateSoldItemBody{
             goafterbuy.UpdateSoldItemBodyOrder{
                 OrderId:        523371348,
                 ItemId:         523371348,
-                AdditionalInfo: "Kleiner Pimmeldachs",
+                AdditionalInfo: "DE9034274324",
             },
         },
     },
