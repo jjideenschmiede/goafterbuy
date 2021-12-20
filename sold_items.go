@@ -74,6 +74,7 @@ type SoldItemsReturnOrder struct {
 	FeedbackDate                  string                               `xml:"FeedbackDate"`
 	AdditionalInfo                string                               `xml:"AdditionalInfo"`
 	TrackingLink                  string                               `xml:"TrackingLink"`
+	Memo                          string                               `xml:"Memo"`
 	FeedbackLink                  string                               `xml:"FeedbackLink"`
 	OrderDate                     string                               `xml:"OrderDate"`
 	OrderIdAlt                    interface{}                          `xml:"OrderIDAlt"`
@@ -83,6 +84,7 @@ type SoldItemsReturnOrder struct {
 	ContainseBayPlusTransaction   bool                                 `xml:"ContainseBayPlusTransaction"`
 	SoldItems                     SoldItemsReturnSoldItems             `xml:"SoldItems"`
 	ShippingInfo                  SoldItemsReturnShippingInfo          `xml:"ShippingInfo"`
+	VorgangsInfo                  SoldItemsReturnVorgangsInfo          `xml:"VorgangsInfo"`
 	OrderOriginalCurrency         SoldItemsReturnOrderOriginalCurrency `xml:"OrderOriginalCurrency"`
 }
 
@@ -220,6 +222,13 @@ type SoldItemsReturnShippingInfo struct {
 	DeliveryDate           string   `xml:"DeliveryDate"`
 }
 
+type SoldItemsReturnVorgangsInfo struct {
+	XmlName       xml.Name `xml:"VorgangsInfo"`
+	VorgangsInfo1 string   `xml:"VorgangsInfo1"`
+	VorgangsInfo2 string   `xml:"VorgangsInfo2"`
+	VorgangsInfo3 string   `xml:"VorgangsInfo3"`
+}
+
 type SoldItemsReturnOrderOriginalCurrency struct {
 	XmlName                 xml.Name `xml:"OriginalCurrency"`
 	EbayShippingAmount      string   `xml:"EbayShippingAmount"`
@@ -288,6 +297,7 @@ type SoldItemReturnOrder struct {
 	FeedbackDate                  string                              `xml:"FeedbackDate"`
 	AdditionalInfo                string                              `xml:"AdditionalInfo"`
 	TrackingLink                  string                              `xml:"TrackingLink"`
+	Memo                          string                              `xml:"Memo"`
 	FeedbackLink                  string                              `xml:"FeedbackLink"`
 	OrderDate                     string                              `xml:"OrderDate"`
 	OrderIdAlt                    interface{}                         `xml:"OrderIDAlt"`
@@ -297,6 +307,7 @@ type SoldItemReturnOrder struct {
 	ContainseBayPlusTransaction   bool                                `xml:"ContainseBayPlusTransaction"`
 	SoldItems                     SoldItemReturnSoldItems             `xml:"SoldItems"`
 	ShippingInfo                  SoldItemReturnShippingInfo          `xml:"ShippingInfo"`
+	VorgangsInfo                  SoldItemReturnVorgangsInfo          `xml:"VorgangsInfo"`
 	OrderOriginalCurrency         SoldItemReturnOrderOriginalCurrency `xml:"OrderOriginalCurrency"`
 }
 
@@ -433,6 +444,13 @@ type SoldItemReturnShippingInfo struct {
 	ShippingTotalCost      string   `xml:"ShippingTotalCost"`
 	ShippingTaxRate        string   `xml:"ShippingTaxRate"`
 	DeliveryDate           string   `xml:"DeliveryDate"`
+}
+
+type SoldItemReturnVorgangsInfo struct {
+	XmlName       xml.Name `xml:"VorgangsInfo"`
+	VorgangsInfo1 string   `xml:"VorgangsInfo1"`
+	VorgangsInfo2 string   `xml:"VorgangsInfo2"`
+	VorgangsInfo3 string   `xml:"VorgangsInfo3"`
 }
 
 type SoldItemReturnOrderOriginalCurrency struct {
