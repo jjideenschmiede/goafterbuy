@@ -467,7 +467,7 @@ type UpdateSoldItemBodyOrder struct {
 	MailDate         string                          `xml:"MailDate,omitempty"`
 	ReminderMailDate string                          `xml:"ReminderMailDate,omitempty"`
 	UserComment      string                          `xml:"UserComment,omitempty"`
-	OrderMemo        string                          `xml:"OrderMemo,omitempty"`
+	Memo             string                          `xml:"Memo,omitempty"`
 	InvoiceMemo      string                          `xml:"InvoiceMemo,omitempty"`
 	InvoiceNumber    int                             `xml:"InvoiceNumber,omitempty"`
 	OrderExported    int                             `xml:"OrderExported,omitempty"`
@@ -479,6 +479,7 @@ type UpdateSoldItemBodyOrder struct {
 	BuyerInfo        *UpdateSoldItemBodyBuyerInfo    `xml:"BuyerInfo,omitempty"`
 	PaymentInfo      *UpdateSoldItemBodyPaymentInfo  `xml:"PaymentInfo,omitempty"`
 	ShippingInfo     *UpdateSoldItemBodyShippingInfo `xml:"ShippingInfo,omitempty"`
+	VorgangsInfo     *UpdateSoldItemBodyVorgangsInfo `xml:"VorgangsInfo,omitempty"`
 }
 
 type UpdateSoldItemBodyBuyerInfo struct {
@@ -508,6 +509,12 @@ type UpdateSoldItemBodyShippingInfo struct {
 	ShippingCost     string `xml:"ShippingCost,omitempty"`
 	DeliveryDate     string `xml:"DeliveryDate,omitempty"`
 	EBayShippingCost string `xml:"eBayShippingCost,omitempty"`
+}
+
+type UpdateSoldItemBodyVorgangsInfo struct {
+	VorgangsInfo1 string `xml:"VorgangsInfo1,omitempty"`
+	VorgangsInfo2 string `xml:"VorgangsInfo2,omitempty"`
+	VorgangsInfo3 string `xml:"VorgangsInfo3,omitempty"`
 }
 
 // UpdateSoldItemReturn is to decode the xml return
