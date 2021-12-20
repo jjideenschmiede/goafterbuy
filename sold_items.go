@@ -467,7 +467,7 @@ type UpdateSoldItemBodyOrder struct {
 	MailDate         string                          `xml:"MailDate,omitempty"`
 	ReminderMailDate string                          `xml:"ReminderMailDate,omitempty"`
 	UserComment      string                          `xml:"UserComment,omitempty"`
-	Memo             string                          `xml:"Memo,omitempty"`
+	OrderMemo        string                          `xml:"OrderMemo,omitempty"`
 	InvoiceMemo      string                          `xml:"InvoiceMemo,omitempty"`
 	InvoiceNumber    int                             `xml:"InvoiceNumber,omitempty"`
 	OrderExported    int                             `xml:"OrderExported,omitempty"`
