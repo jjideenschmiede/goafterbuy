@@ -187,6 +187,7 @@ type SoldItemsReturnItemOriginalCurrency struct {
 }
 
 type SoldItemsReturnShopProductDetails struct {
+	XmlName         xml.Name                       `xml:"ShopProductDetails"`
 	ProductId       int                            `xml:"product_id"`
 	Name            string                         `xml:"Name"`
 	Ean             string                         `xml:"EAN"`
