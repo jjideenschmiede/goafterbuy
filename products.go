@@ -223,7 +223,7 @@ type ProductsReturnProductPicture struct {
 
 type ProductsReturnCatalogs struct {
 	XmlName   xml.Name `xml:"Catalogs"`
-	CatalogId int      `xml:"CatalogID"`
+	CatalogId []int    `xml:"CatalogID"`
 }
 
 type ProductsReturnAttributes struct {
