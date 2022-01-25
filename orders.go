@@ -19,64 +19,68 @@ import (
 
 // AddOrderBody is to structure the order body data
 type AddOrderBody struct {
-	Action                 string
-	PartnerId              string
-	PartnerPass            string
-	UserId                 string
-	ItemNo                 string
-	KUsername              string
-	KSalutation            string
-	KCompany               string
-	KFirstName             string
-	KLastName              string
-	KStreet                string
-	KStreet2               string
-	KZip                   string
-	KLocation              string
-	KState                 string
-	KCountry               string
-	KPhone                 string
-	KFax                   string
-	KEmail                 string
-	DeliveryAddress        string
-	KLSalutation           string
-	KLCompany              string
-	KLFirstName            string
-	KLLastName             string
-	KLStreet               string
-	KLStreet2              string
-	KLZip                  string
-	KLLocation             string
-	KLState                string
-	KLCountry              string
-	KLPhone                string
-	Comment                string
-	ShippingGroup          string
-	ShippingMethod         string
-	ShippingCosts          string
-	NoShippingCalc         string
-	SoldCurrency           string
-	VMemo                  string
-	OrderInfo1             string
-	OrderInfo2             string
-	OrderInfo3             string
-	NoFeedback             string
-	SetPay                 string
-	CustomerIdentification string
-	ArticleIdentification  string
-	StockType              string
-	B1                     string
-	Items                  []AddOrderBodyItem
+	Action                  string
+	PartnerId               string
+	PartnerPass             string
+	UserId                  string
+	ItemNo                  string
+	KUsername               string
+	KSalutation             string
+	KCompany                string
+	KFirstName              string
+	KLastName               string
+	KStreet                 string
+	KStreet2                string
+	KZip                    string
+	KLocation               string
+	KState                  string
+	KCountry                string
+	KPhone                  string
+	KFax                    string
+	KEmail                  string
+	DeliveryAddress         string
+	KLSalutation            string
+	KLCompany               string
+	KLFirstName             string
+	KLLastName              string
+	KLStreet                string
+	KLStreet2               string
+	KLZip                   string
+	KLLocation              string
+	KLState                 string
+	KLCountry               string
+	KLPhone                 string
+	Comment                 string
+	ShippingGroup           string
+	ShippingMethod          string
+	PaymentMethodsSurcharge string
+	ShippingCosts           string
+	NoShippingCalc          string
+	PaymentMethod           string
+	SoldCurrency            string
+	VMemo                   string
+	OrderInfo1              string
+	OrderInfo2              string
+	OrderInfo3              string
+	NoFeedback              string
+	SetPay                  string
+	CustomerIdentification  string
+	ArticleIdentification   string
+	StockType               string
+	B1                      string
+	Items                   []AddOrderBodyItem
 }
 
 type AddOrderBodyItem struct {
-	ArticleNo       string
-	AlternArticleNo string
-	ArticleName     string
-	ArticleEPrice   string
-	ArticleVat      string
-	ArticleQuantity string
-	ArticleMasterId string
+	ArticleNo        string
+	AlternArticleNo1 string
+	AlternArticleNo2 string
+	ArticleName      string
+	ArticleEPrice    string
+	ArticleVat       string
+	ArticleQuantity  string
+	ArticleLink      string
+	ArticleMasterId  string
 }
 
 // AddOrderReturn is to decode xml data
@@ -142,8 +146,10 @@ func AddOrder(body AddOrderBody) (AddOrderReturn, error) {
 	parameter.Add("Kommentar", body.Comment)
 	parameter.Add("Versandgruppe", body.ShippingGroup)
 	parameter.Add("Versandart", body.ShippingMethod)
+	parameter.Add("ZahlartenAufschlag", body.PaymentMethodsSurcharge)
 	parameter.Add("Versandkosten", body.ShippingCosts)
 	parameter.Add("NoVersandCalc", body.NoShippingCalc)
+	parameter.Add("Zahlart", body.PaymentMethod)
 	parameter.Add("SoldCurrency", body.SoldCurrency)
 	parameter.Add("VMemo", body.VMemo)
 	parameter.Add("OrderInfo1", body.OrderInfo1)
@@ -161,11 +167,13 @@ func AddOrder(body AddOrderBody) (AddOrderReturn, error) {
 
 		// Add url parameter
 		parameter.Add(fmt.Sprintf("Artikelnr_%d", index+1), value.ArticleNo)
-		parameter.Add(fmt.Sprintf("AlternArtikelNr1_%d", index+1), value.AlternArticleNo)
+		parameter.Add(fmt.Sprintf("AlternArtikelNr1_%d", index+1), value.AlternArticleNo1)
+		parameter.Add(fmt.Sprintf("AlternArtikelNr2_%d", index+1), value.AlternArticleNo2)
 		parameter.Add(fmt.Sprintf("Artikelname_%d", index+1), value.ArticleName)
 		parameter.Add(fmt.Sprintf("ArtikelEpreis_%d", index+1), value.ArticleEPrice)
 		parameter.Add(fmt.Sprintf("ArtikelMwSt_%d", index+1), value.ArticleVat)
 		parameter.Add(fmt.Sprintf("ArtikelMenge_%d", index+1), value.ArticleQuantity)
+		parameter.Add(fmt.Sprintf("ArtikelLink_%d", index+1), value.ArticleLink)
 		parameter.Add(fmt.Sprintf("ArtikelStammID_%d", index+1), value.ArticleMasterId)
 
 	}
