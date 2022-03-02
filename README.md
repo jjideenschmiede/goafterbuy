@@ -28,7 +28,7 @@ body := goafterbuy.ProductsBody{
             PartnerPassword: "",
             UserId:          "",
             UserPassword:    "",
-            CallName:        "",
+            CallName:        "GetShopProducts",
             DetailLevel:     0,
             ErrorLanguage:   "DE",
         },
@@ -57,6 +57,26 @@ if err != nil {
 }
 ```
 
+**For all requests described in this documentation, you can also verify with the PartnerToken and the AccountToken. The whole thing is then also deposited in goafterbuy.AfterbuyGlobal and looks like this:**
+
+```go
+// Define products body
+body := goafterbuy.ProductsBody{
+    Request: goafterbuy.ProductsRequest{
+        AfterbuyGlobal: goafterbuy.AfterbuyGlobal{
+            PartnerToken:  "",
+            AccountToken:  "",
+            CallName:      "GetShopProducts",
+            DetailLevel:   0,
+            ErrorLanguage: "DE",
+        },
+		
+        // Rest of the request body
+		
+    },
+}
+```
+
 ## Get stock
 
 If you want to read out a stock, then you can do this here via the ID of the product. Please note that you need the same data here as when reading out the products.
@@ -74,7 +94,7 @@ body := goafterbuy.StockBody{
             PartnerPassword: "",
             UserId:          "",
             UserPassword:    "",
-            CallName:        "",
+            CallName:        "GetShopProducts",
             DetailLevel:     2,
             ErrorLanguage:   "DE",
         },
