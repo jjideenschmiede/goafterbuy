@@ -28,6 +28,8 @@ type AfterbuyGlobal struct {
 	PartnerPassword string `xml:"PartnerPassword,omitempty"`
 	UserId          string `xml:"UserID,omitempty"`
 	UserPassword    string `xml:"UserPassword,omitempty"`
+	PartnerToken    string `xml:"PartnerToken,omitempty"`
+	AccountToken    string `xml:"AccountToken,omitempty"`
 	CallName        string `xml:"CallName,omitempty"`
 	DetailLevel     int    `xml:"DetailLevel,omitempty"`
 	ErrorLanguage   string `xml:"ErrorLanguage,omitempty"`
