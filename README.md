@@ -41,17 +41,17 @@ body := goafterbuy.ProductsBody{
 }
 
 // Add filter value for product id
-body.Request.DataFilter.Filter = append(body.Request.DataFilter.Filter, ProductsRequestFilter{
+body.Request.DataFilter.Filter = append(body.Request.DataFilter.Filter, goafterbuy.ProductsRequestFilter{
     FilterName: "ProductID",
-	FilterValues: ProductsRequestFilterValues{
+	FilterValues: goafterbuy.ProductsRequestFilterValues{
         FilterValue: []string{"79341966", "79341972"},
     },
 })
 
 // Add filter value for level
-body.Request.DataFilter.Filter = append(body.Request.DataFilter.Filter, ProductsRequestFilter{
+body.Request.DataFilter.Filter = append(body.Request.DataFilter.Filter, goafterbuy.ProductsRequestFilter{
     FilterName: "Level",
-    FilterValues: ProductsRequestFilterValues{
+    FilterValues: goafterbuy.ProductsRequestFilterValues{
         LevelFrom: 0,
         LevelTo:   99,
     },
