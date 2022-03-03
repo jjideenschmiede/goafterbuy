@@ -30,7 +30,7 @@ type ProductsRequest struct {
 }
 
 type ProductsRequestDataFilter struct {
-	Filter ProductsRequestFilter `xml:"Filter"`
+	Filter []ProductsRequestFilter `xml:"Filter"`
 }
 
 type ProductsRequestFilter struct {
@@ -39,8 +39,13 @@ type ProductsRequestFilter struct {
 }
 
 type ProductsRequestFilterValues struct {
-	LevelFrom int `xml:"LevelFrom"`
-	LevelTo   int `xml:"LevelTo"`
+	LevelFrom   int      `xml:"LevelFrom,omitempty"`
+	LevelTo     int      `xml:"LevelTo,omitempty"`
+	ValueFrom   int      `xml:"ValueFrom,omitempty"`
+	ValueTo     int      `xml:"ValueTo,omitempty"`
+	DateFrom    string   `xml:"DateFrom,omitempty"`
+	DateTo      string   `xml:"DateTo,omitempty"`
+	FilterValue []string `xml:"FilterValue,omitempty"`
 }
 
 // ProductsReturn is to decode the xml data

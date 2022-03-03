@@ -32,21 +32,30 @@ body := goafterbuy.ProductsBody{
             DetailLevel:     0,
             ErrorLanguage:   "DE",
         },
-        DataFilter: &goafterbuy.ProductsRequestDataFilter{
-			goafterbuy.ProductsRequestFilter{
-                 FilterName: "Level",
-                 FilterValues: goafterbuy.ProductsRequestFilterValues{
-                     LevelFrom: 0,
-                     LevelTo:   12,
-                 },
-             },
-        },
+        DataFilter: &goafterbuy.ProductsRequestDataFilter{},
         MaxShopItems:                   100,
         SuppressBaseProductRelatedData: 0,
         PaginationEnabled:              1,
         PageNumber:                     0,
     },
 }
+
+// Add filter value for product id
+body.Request.DataFilter.Filter = append(body.Request.DataFilter.Filter, ProductsRequestFilter{
+    FilterName: "ProductID",
+	FilterValues: ProductsRequestFilterValues{
+        FilterValue: []string{"79341966", "79341972"},
+    },
+})
+
+// Add filter value for level
+body.Request.DataFilter.Filter = append(body.Request.DataFilter.Filter, ProductsRequestFilter{
+    FilterName: "Level",
+    FilterValues: ProductsRequestFilterValues{
+        LevelFrom: 0,
+        LevelTo:   99,
+    },
+})
 
 // Get afterbuy products
 products, err := goafterbuy.Products(body)
