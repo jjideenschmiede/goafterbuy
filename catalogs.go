@@ -25,7 +25,7 @@ type CatalogsRequest struct {
 }
 
 type CatalogsRequestDataFilter struct {
-	Filter []CatalogsRequestFilter `xml:"Filter"`
+	Filter CatalogsRequestFilter `xml:"Filter"`
 }
 
 type CatalogsRequestFilter struct {
@@ -38,8 +38,6 @@ type CatalogsRequestFilterValues struct {
 	LevelTo     int      `xml:"LevelTo,omitempty"`
 	ValueFrom   int      `xml:"ValueFrom,omitempty"`
 	ValueTo     int      `xml:"ValueTo,omitempty"`
-	DateFrom    string   `xml:"DateFrom,omitempty"`
-	DateTo      string   `xml:"DateTo,omitempty"`
 	FilterValue []string `xml:"FilterValue,omitempty"`
 }
 
