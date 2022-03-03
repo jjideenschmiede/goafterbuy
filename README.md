@@ -143,18 +143,19 @@ body := goafterbuy.CatalogsBody{
             DetailLevel:     0,
             ErrorLanguage:   "DE",
         },
-    },
-    MaxCatalogs: 200,
-    DataFilter: goafterbuy.CatalogsRequestDataFilter{
-        Filter: goafterbuy.CatalogsRequestFilter{
-            FilterName:   "RangeID",
-            FilterValues: goafterbuy.CatalogsRequestFilterValues{
-                ValueFrom: 0,
-                ValueTo: 0,
-            },
-        },
+        MaxCatalogs: 200,
+        DataFilter: &goafterbuy.CatalogsRequestDataFilter{},
     },
 }
+
+// Add filter
+body.Request.DataFilter.Filter = append(body.Request.DataFilter.Filter, goafterbuy.CatalogsRequestFilter{
+    FilterName: "RangeID",
+    FilterValues: goafterbuy.CatalogsRequestFilterValues{
+        ValueFrom: 0,
+        ValueTo:   0,
+    },
+})
 
 // Get catalogs
 catalogs, err := goafterbuy.Catalogs(body)
