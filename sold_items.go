@@ -290,7 +290,7 @@ type SoldItemReturnOrders struct {
 
 type SoldItemReturnOrder struct {
 	XmlName                       xml.Name                            `xml:"Order"`
-	InvoiceNumber                 int                                 `xml:"InvoiceNumber"`
+	InvoiceNumber                 string                              `xml:"InvoiceNumber"`
 	OrderId                       int                                 `xml:"OrderID"`
 	EbayAccount                   string                              `xml:"EbayAccount"`
 	AmazonAccount                 string                              `xml:"AmazonAccount"`
