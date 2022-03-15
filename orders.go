@@ -85,10 +85,11 @@ type AddOrderBodyItem struct {
 
 // AddOrderReturn is to decode xml data
 type AddOrderReturn struct {
-	XmlName xml.Name           `xml:"result"`
-	Success int                `xml:"success"`
-	Action  string             `xml:"Action"`
-	Data    AddOrderReturnData `xml:"data"`
+	XmlName   xml.Name                  `xml:"result"`
+	Success   int                       `xml:"success"`
+	Action    string                    `xml:"Action"`
+	Data      AddOrderReturnData        `xml:"data"`
+	ErrorList []AddOrderReturnErrorList `xml:"errorlist"`
 }
 
 type AddOrderReturnData struct {
@@ -98,6 +99,10 @@ type AddOrderReturnData struct {
 	KundenNr   int      `xml:"KundenNr"`
 	EKundenNr  int      `xml:"EKundenNr"`
 	CouponUsed int      `xml:"CouponUsed"`
+}
+
+type AddOrderReturnErrorList struct {
+	Error string `xml:"error"`
 }
 
 // AddOrder is to add a new order via shop interface
