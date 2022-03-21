@@ -139,6 +139,7 @@ type SoldItemsReturnShippingAddress struct {
 	PostalCode      string   `xml:"PostalCode"`
 	City            string   `xml:"City"`
 	StateOrProvince string   `xml:"StateOrProvince"`
+	Phone           string   `xml:"Phone"`
 	Country         string   `xml:"Country"`
 	CountryISO      string   `xml:"CountryISO"`
 	TaxIDNumber     string   `xml:"TaxIDNumber"`
@@ -363,6 +364,7 @@ type SoldItemReturnShippingAddress struct {
 	PostalCode      string   `xml:"PostalCode"`
 	City            string   `xml:"City"`
 	StateOrProvince string   `xml:"StateOrProvince"`
+	Phone           string   `xml:"Phone"`
 	Country         string   `xml:"Country"`
 	CountryISO      string   `xml:"CountryISO"`
 	TaxIDNumber     string   `xml:"TaxIDNumber"`
