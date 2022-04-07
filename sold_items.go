@@ -179,6 +179,7 @@ type SoldItemsReturnSoldItem struct {
 	EBayFeedbackCompleted   int                                 `xml:"eBayFeedbackCompleted"`
 	EBayFeedbackReceived    int                                 `xml:"eBayFeedbackReceived"`
 	ShopProductDetails      SoldItemsReturnShopProductDetails   `xml:"ShopProductDetails"`
+	Tags                    SoldItemReturnTags                  `xml:"Tags"`
 }
 
 type SoldItemsReturnItemOriginalCurrency struct {
@@ -213,6 +214,11 @@ type SoldItemsReturnChildProduct struct {
 	ProductVat       int      `xml:"ProductVAT"`
 	ProductWeight    string   `xml:"ProductWeight"`
 	ProductUnitPrice string   `xml:"ProductUnitPrice"`
+}
+
+type SoldItemsReturnTags struct {
+	XmlName xml.Name `xml:"Tags"`
+	Tag     string   `xml:"Tag"`
 }
 
 type SoldItemsReturnShippingInfo struct {
@@ -404,6 +410,7 @@ type SoldItemReturnSoldItem struct {
 	EBayFeedbackCompleted   int                                `xml:"eBayFeedbackCompleted"`
 	EBayFeedbackReceived    int                                `xml:"eBayFeedbackReceived"`
 	ShopProductDetails      SoldItemReturnShopProductDetails   `xml:"ShopProductDetails"`
+	Tags                    SoldItemReturnTags                 `xml:"Tags"`
 }
 
 type SoldItemReturnItemOriginalCurrency struct {
@@ -438,6 +445,11 @@ type SoldItemReturnChildProduct struct {
 	ProductVat       int      `xml:"ProductVAT"`
 	ProductWeight    string   `xml:"ProductWeight"`
 	ProductUnitPrice string   `xml:"ProductUnitPrice"`
+}
+
+type SoldItemReturnTags struct {
+	XmlName xml.Name `xml:"Tags"`
+	Tag     string   `xml:"Tag"`
 }
 
 type SoldItemReturnShippingInfo struct {
@@ -502,6 +514,7 @@ type UpdateSoldItemBodyOrder struct {
 	PaymentInfo      *UpdateSoldItemBodyPaymentInfo  `xml:"PaymentInfo,omitempty"`
 	ShippingInfo     *UpdateSoldItemBodyShippingInfo `xml:"ShippingInfo,omitempty"`
 	VorgangsInfo     *UpdateSoldItemBodyVorgangsInfo `xml:"VorgangsInfo,omitempty"`
+	Tags             []*UpdateSoldItemBodyTags       `xml:"Tags,omitempty"`
 }
 
 type UpdateSoldItemBodyBuyerInfo struct {
@@ -537,6 +550,10 @@ type UpdateSoldItemBodyVorgangsInfo struct {
 	VorgangsInfo1 string `xml:"VorgangsInfo1,omitempty"`
 	VorgangsInfo2 string `xml:"VorgangsInfo2,omitempty"`
 	VorgangsInfo3 string `xml:"VorgangsInfo3,omitempty"`
+}
+
+type UpdateSoldItemBodyTags struct {
+	Tag string `xml:"Tag,omitempty"`
 }
 
 // UpdateSoldItemReturn is to decode the xml return
