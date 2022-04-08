@@ -218,7 +218,7 @@ type SoldItemsReturnChildProduct struct {
 
 type SoldItemsReturnTags struct {
 	XmlName xml.Name `xml:"Tags"`
-	Tag     string   `xml:"Tag"`
+	Tag     []string `xml:"Tag"`
 }
 
 type SoldItemsReturnShippingInfo struct {
@@ -449,7 +449,7 @@ type SoldItemReturnChildProduct struct {
 
 type SoldItemReturnTags struct {
 	XmlName xml.Name `xml:"Tags"`
-	Tag     string   `xml:"Tag"`
+	Tag     []string `xml:"Tag"`
 }
 
 type SoldItemReturnShippingInfo struct {
