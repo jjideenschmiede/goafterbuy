@@ -195,7 +195,7 @@ type SoldItemsReturnShopProductDetails struct {
 	Name            string                         `xml:"Name"`
 	Ean             string                         `xml:"EAN"`
 	Anr             int                            `xml:"Anr"`
-	BasepriceFactor int                            `xml:"BasepriceFactor"`
+	BasepriceFactor string                         `xml:"BasepriceFactor"`
 	BaseProductData SoldItemsReturnBaseProductData `xml:"BaseProductData"`
 }
 
@@ -426,7 +426,7 @@ type SoldItemReturnShopProductDetails struct {
 	Name            string                        `xml:"Name"`
 	Ean             string                        `xml:"EAN"`
 	Anr             int                           `xml:"Anr"`
-	BasepriceFactor int                           `xml:"BasepriceFactor"`
+	BasepriceFactor string                        `xml:"BasepriceFactor"`
 	BaseProductData SoldItemReturnBaseProductData `xml:"BaseProductData"`
 }
 
