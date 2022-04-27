@@ -19,9 +19,10 @@ type SoldItemsBody struct {
 }
 
 type SoldItemsRequest struct {
-	AfterbuyGlobal AfterbuyGlobal      `xml:"AfterbuyGlobal"`
-	DataFilter     SoldItemsDataFilter `xml:"DataFilter"`
-	MaxSoldItems   int                 `xml:"MaxSoldItems"`
+	AfterbuyGlobal    AfterbuyGlobal      `xml:"AfterbuyGlobal"`
+	DataFilter        SoldItemsDataFilter `xml:"DataFilter"`
+	MaxSoldItems      int                 `xml:"MaxSoldItems"`
+	ReturnHiddenItems int                 `xml:"ReturnHiddenItems"`
 }
 
 type SoldItemsDataFilter struct {
@@ -255,8 +256,9 @@ type SoldItemBody struct {
 }
 
 type SoldItemRequest struct {
-	AfterbuyGlobal AfterbuyGlobal     `xml:"AfterbuyGlobal"`
-	DataFilter     SoldItemDataFilter `xml:"DataFilter"`
+	AfterbuyGlobal    AfterbuyGlobal     `xml:"AfterbuyGlobal"`
+	DataFilter        SoldItemDataFilter `xml:"DataFilter"`
+	ReturnHiddenItems int                `xml:"ReturnHiddenItems"`
 }
 
 type SoldItemDataFilter struct {

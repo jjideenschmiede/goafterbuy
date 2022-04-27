@@ -214,6 +214,7 @@ body := goafterbuy.SoldItemsBody{
             Filter: []goafterbuy.SoldItemsFilter{},
         },
         MaxSoldItems: 100,
+        ReturnHiddenItems: 1,
     },
 }
 
@@ -265,6 +266,7 @@ body := goafterbuy.SoldItemBody{
                 },
             },
         },
+        ReturnHiddenItems: 1,
     },
 }
 
