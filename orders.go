@@ -81,6 +81,11 @@ type AddOrderBodyItem struct {
 	ArticleQuantity  string
 	ArticleLink      string
 	ArticleMasterId  string
+	ArticleTag1      string
+	ArticleTag2      string
+	ArticleTag3      string
+	ArticleTag4      string
+	ArticleTag5      string
 }
 
 // AddOrderReturn is to decode xml data
@@ -180,6 +185,11 @@ func AddOrder(body AddOrderBody) (AddOrderReturn, error) {
 		parameter.Add(fmt.Sprintf("ArtikelMenge_%d", index+1), value.ArticleQuantity)
 		parameter.Add(fmt.Sprintf("ArtikelLink_%d", index+1), value.ArticleLink)
 		parameter.Add(fmt.Sprintf("ArtikelStammID_%d", index+1), value.ArticleMasterId)
+		parameter.Add(fmt.Sprintf("ArtikelTag_%d_1", index+1), value.ArticleTag1)
+		parameter.Add(fmt.Sprintf("ArtikelTag_%d_2", index+1), value.ArticleTag2)
+		parameter.Add(fmt.Sprintf("ArtikelTag_%d_3", index+1), value.ArticleTag3)
+		parameter.Add(fmt.Sprintf("ArtikelTag_%d_4", index+1), value.ArticleTag4)
+		parameter.Add(fmt.Sprintf("ArtikelTag_%d_5", index+1), value.ArticleTag5)
 
 	}
 

@@ -385,6 +385,11 @@ body.Items = append(body.Items, goafterbuy.AddOrderBodyItem{
     ArticleQuantity:  "19",
     ArticleLink:      "http://jj-dev.de",
     ArticleMasterId:  "2131424124",
+    ArticleTag1:      "Stornierungsanfrage",
+    ArticleTag2:      "",
+    ArticleTag3:      "",
+    ArticleTag4:      "",
+    ArticleTag5:      "",
 })
 
 // Set afterbuy order
