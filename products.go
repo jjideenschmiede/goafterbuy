@@ -78,6 +78,7 @@ type ProductsReturnProduct struct {
 	Anr                                int                            `xml:"Anr"`
 	Ean                                string                         `xml:"EAN"`
 	Name                               string                         `xml:"Name"`
+	CanonicalUrl                       string                         `xml:"CanonicalUrl"`
 	SeoName                            string                         `xml:"SeoName"`
 	ModDate                            string                         `xml:"ModDate"`
 	BaseProductFlag                    int                            `xml:"BaseProductFlag"`
