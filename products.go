@@ -109,7 +109,7 @@ type ProductsReturnProduct struct {
 	Position                           int                            `xml:"Position"`
 	TitleReplace                       int                            `xml:"TitleReplace"`
 	ScaledDiscounts                    ProductsReturnScaledDiscounts  `xml:"ScaledDiscounts"`
-	TaxRate                            float64                        `xml:"TaxRate"`
+	TaxRate                            string                         `xml:"TaxRate"`
 	Weight                             string                         `xml:"Weight"`
 	SearchAlias                        string                         `xml:"SearchAlias"`
 	Froogle                            int                            `xml:"Froogle"`
