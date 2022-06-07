@@ -159,7 +159,7 @@ type ProductsReturnProduct struct {
 	CustomLabel2                       string                         `xml:"CustomLabel2"`
 	CustomLabel3                       string                         `xml:"CustomLabel3"`
 	CustomLabel4                       string                         `xml:"CustomLabel4"`
-	MultiLanguage                      interface{}                    `xml:"MultiLanguage"`
+	MultiLanguage                      ProductsReturnMultiLanguage    `xml:"MultiLanguage"`
 }
 
 type ProductsReturnBaseProducts struct {
@@ -252,6 +252,360 @@ type ProductsReturnPaginationResult struct {
 	TotalNumberOfPages   int      `xml:"TotalNumberOfPages"`
 	ItemsPerPage         int      `xml:"ItemsPerPage"`
 	PageNumber           int      `xml:"PageNumber"`
+}
+
+type ProductsReturnMultiLanguage struct {
+	XmlName xml.Name                  `xml:"MultiLanguage"`
+	At      ProductsReturnLanguageAt  `xml:"AT"`
+	B       ProductsReturnLanguageB   `xml:"B"`
+	Bg      ProductsReturnLanguageBg  `xml:"BG"`
+	Ch      ProductsReturnLanguageCh  `xml:"CH"`
+	Cy      ProductsReturnLanguageCy  `xml:"CY"`
+	Cz      ProductsReturnLanguageCz  `xml:"CZ"`
+	De      ProductsReturnLanguageDe  `xml:"DE"`
+	Dk      ProductsReturnLanguageDe  `xml:"DK"`
+	E       ProductsReturnLanguageE   `xml:"E"`
+	Fin     ProductsReturnLanguageFin `xml:"FIN"`
+	Fr      ProductsReturnLanguageFr  `xml:"FR"`
+	Gb      ProductsReturnLanguageGb  `xml:"GB"`
+	Gr      ProductsReturnLanguageGr  `xml:"GR"`
+	H       ProductsReturnLanguageH   `xml:"H"`
+	Hr      ProductsReturnLanguageHr  `xml:"HR"`
+	I       ProductsReturnLanguageI   `xml:"I"`
+	Irl     ProductsReturnLanguageI   `xml:"IRL"`
+	Is      ProductsReturnLanguageIs  `xml:"IS"`
+	J       ProductsReturnLanguageJ   `xml:"J"`
+	Kp      ProductsReturnLanguageKp  `xml:"KP"`
+	Lt      ProductsReturnLanguageLt  `xml:"LT"`
+	Lu      ProductsReturnLanguageLu  `xml:"LU"`
+	Lv      ProductsReturnLanguageLv  `xml:"LV"`
+	Mt      ProductsReturnLanguageMt  `xml:"MT"`
+	N       ProductsReturnLanguageN   `xml:"N"`
+	Nl      ProductsReturnLanguageNl  `xml:"NL"`
+	P       ProductsReturnLanguageP   `xml:"P"`
+	Pl      ProductsReturnLanguagePl  `xml:"PL"`
+	Ro      ProductsReturnLanguageRo  `xml:"RO"`
+	Ru      ProductsReturnLanguageRu  `xml:"RU"`
+	S       ProductsReturnLanguageS   `xml:"S"`
+	Sk      ProductsReturnLanguageSk  `xml:"SK"`
+	Slo     ProductsReturnLanguageSlo `xml:"SLO"`
+	Tr      ProductsReturnLanguageTr  `xml:"TR"`
+	Us      ProductsReturnLanguageUs  `xml:"US"`
+}
+
+type ProductsReturnLanguageAt struct {
+	XmlName          xml.Name `xml:"AT"`
+	Alias            string   `xml:"Alias"`
+	Beschreibung     string   `xml:"Beschreibung"`
+	Kurzbeschreibung string   `xml:"Kurzbeschreibung"`
+	Name             string   `xml:"Name"`
+	Ust              string   `xml:"ust"`
+}
+
+type ProductsReturnLanguageB struct {
+	XmlName          xml.Name `xml:"B"`
+	Alias            string   `xml:"Alias"`
+	Beschreibung     string   `xml:"Beschreibung"`
+	Kurzbeschreibung string   `xml:"Kurzbeschreibung"`
+	Name             string   `xml:"Name"`
+	Ust              string   `xml:"ust"`
+}
+
+type ProductsReturnLanguageBg struct {
+	XmlName          xml.Name `xml:"BG"`
+	Alias            string   `xml:"Alias"`
+	Beschreibung     string   `xml:"Beschreibung"`
+	Kurzbeschreibung string   `xml:"Kurzbeschreibung"`
+	Name             string   `xml:"Name"`
+	Ust              string   `xml:"ust"`
+}
+
+type ProductsReturnLanguageCh struct {
+	XmlName          xml.Name `xml:"CH"`
+	Alias            string   `xml:"Alias"`
+	Beschreibung     string   `xml:"Beschreibung"`
+	Kurzbeschreibung string   `xml:"Kurzbeschreibung"`
+	Name             string   `xml:"Name"`
+	Ust              string   `xml:"ust"`
+}
+
+type ProductsReturnLanguageCy struct {
+	XmlName          xml.Name `xml:"CY"`
+	Alias            string   `xml:"Alias"`
+	Beschreibung     string   `xml:"Beschreibung"`
+	Kurzbeschreibung string   `xml:"Kurzbeschreibung"`
+	Name             string   `xml:"Name"`
+	Ust              string   `xml:"ust"`
+}
+
+type ProductsReturnLanguageCz struct {
+	XmlName          xml.Name `xml:"CZ"`
+	Alias            string   `xml:"Alias"`
+	Beschreibung     string   `xml:"Beschreibung"`
+	Kurzbeschreibung string   `xml:"Kurzbeschreibung"`
+	Name             string   `xml:"Name"`
+	Ust              string   `xml:"ust"`
+}
+
+type ProductsReturnLanguageDe struct {
+	XmlName          xml.Name `xml:"DE"`
+	Alias            string   `xml:"Alias"`
+	Beschreibung     string   `xml:"Beschreibung"`
+	Kurzbeschreibung string   `xml:"Kurzbeschreibung"`
+	Name             string   `xml:"Name"`
+	Ust              string   `xml:"ust"`
+}
+
+type ProductsReturnLanguageDk struct {
+	XmlName          xml.Name `xml:"DK"`
+	Alias            string   `xml:"Alias"`
+	Beschreibung     string   `xml:"Beschreibung"`
+	Kurzbeschreibung string   `xml:"Kurzbeschreibung"`
+	Name             string   `xml:"Name"`
+	Ust              string   `xml:"ust"`
+}
+
+type ProductsReturnLanguageE struct {
+	XmlName          xml.Name `xml:"E"`
+	Alias            string   `xml:"Alias"`
+	Beschreibung     string   `xml:"Beschreibung"`
+	Kurzbeschreibung string   `xml:"Kurzbeschreibung"`
+	Name             string   `xml:"Name"`
+	Ust              string   `xml:"ust"`
+}
+
+type ProductsReturnLanguageFin struct {
+	XmlName          xml.Name `xml:"FIN"`
+	Alias            string   `xml:"Alias"`
+	Beschreibung     string   `xml:"Beschreibung"`
+	Kurzbeschreibung string   `xml:"Kurzbeschreibung"`
+	Name             string   `xml:"Name"`
+	Ust              string   `xml:"ust"`
+}
+
+type ProductsReturnLanguageFr struct {
+	XmlName          xml.Name `xml:"FR"`
+	Alias            string   `xml:"Alias"`
+	Beschreibung     string   `xml:"Beschreibung"`
+	Kurzbeschreibung string   `xml:"Kurzbeschreibung"`
+	Name             string   `xml:"Name"`
+	Ust              string   `xml:"ust"`
+}
+
+type ProductsReturnLanguageGb struct {
+	XmlName          xml.Name `xml:"GB"`
+	Alias            string   `xml:"Alias"`
+	Beschreibung     string   `xml:"Beschreibung"`
+	Kurzbeschreibung string   `xml:"Kurzbeschreibung"`
+	Name             string   `xml:"Name"`
+	Ust              string   `xml:"ust"`
+}
+
+type ProductsReturnLanguageGr struct {
+	XmlName          xml.Name `xml:"GR"`
+	Alias            string   `xml:"Alias"`
+	Beschreibung     string   `xml:"Beschreibung"`
+	Kurzbeschreibung string   `xml:"Kurzbeschreibung"`
+	Name             string   `xml:"Name"`
+	Ust              string   `xml:"ust"`
+}
+
+type ProductsReturnLanguageH struct {
+	XmlName          xml.Name `xml:"H"`
+	Alias            string   `xml:"Alias"`
+	Beschreibung     string   `xml:"Beschreibung"`
+	Kurzbeschreibung string   `xml:"Kurzbeschreibung"`
+	Name             string   `xml:"Name"`
+	Ust              string   `xml:"ust"`
+}
+
+type ProductsReturnLanguageHr struct {
+	XmlName          xml.Name `xml:"HR"`
+	Alias            string   `xml:"Alias"`
+	Beschreibung     string   `xml:"Beschreibung"`
+	Kurzbeschreibung string   `xml:"Kurzbeschreibung"`
+	Name             string   `xml:"Name"`
+	Ust              string   `xml:"ust"`
+}
+
+type ProductsReturnLanguageI struct {
+	XmlName          xml.Name `xml:"I"`
+	Alias            string   `xml:"Alias"`
+	Beschreibung     string   `xml:"Beschreibung"`
+	Kurzbeschreibung string   `xml:"Kurzbeschreibung"`
+	Name             string   `xml:"Name"`
+	Ust              string   `xml:"ust"`
+}
+
+type ProductsReturnLanguageIrl struct {
+	XmlName          xml.Name `xml:"IRL"`
+	Alias            string   `xml:"Alias"`
+	Beschreibung     string   `xml:"Beschreibung"`
+	Kurzbeschreibung string   `xml:"Kurzbeschreibung"`
+	Name             string   `xml:"Name"`
+	Ust              string   `xml:"ust"`
+}
+
+type ProductsReturnLanguageIs struct {
+	XmlName          xml.Name `xml:"IS"`
+	Alias            string   `xml:"Alias"`
+	Beschreibung     string   `xml:"Beschreibung"`
+	Kurzbeschreibung string   `xml:"Kurzbeschreibung"`
+	Name             string   `xml:"Name"`
+	Ust              string   `xml:"ust"`
+}
+
+type ProductsReturnLanguageJ struct {
+	XmlName          xml.Name `xml:"J"`
+	Alias            string   `xml:"Alias"`
+	Beschreibung     string   `xml:"Beschreibung"`
+	Kurzbeschreibung string   `xml:"Kurzbeschreibung"`
+	Name             string   `xml:"Name"`
+	Ust              string   `xml:"ust"`
+}
+
+type ProductsReturnLanguageKp struct {
+	XmlName          xml.Name `xml:"KP"`
+	Alias            string   `xml:"Alias"`
+	Beschreibung     string   `xml:"Beschreibung"`
+	Kurzbeschreibung string   `xml:"Kurzbeschreibung"`
+	Name             string   `xml:"Name"`
+	Ust              string   `xml:"ust"`
+}
+
+type ProductsReturnLanguageLt struct {
+	XmlName          xml.Name `xml:"LT"`
+	Alias            string   `xml:"Alias"`
+	Beschreibung     string   `xml:"Beschreibung"`
+	Kurzbeschreibung string   `xml:"Kurzbeschreibung"`
+	Name             string   `xml:"Name"`
+	Ust              string   `xml:"ust"`
+}
+
+type ProductsReturnLanguageLu struct {
+	XmlName          xml.Name `xml:"LU"`
+	Alias            string   `xml:"Alias"`
+	Beschreibung     string   `xml:"Beschreibung"`
+	Kurzbeschreibung string   `xml:"Kurzbeschreibung"`
+	Name             string   `xml:"Name"`
+	Ust              string   `xml:"ust"`
+}
+
+type ProductsReturnLanguageLv struct {
+	XmlName          xml.Name `xml:"LV"`
+	Alias            string   `xml:"Alias"`
+	Beschreibung     string   `xml:"Beschreibung"`
+	Kurzbeschreibung string   `xml:"Kurzbeschreibung"`
+	Name             string   `xml:"Name"`
+	Ust              string   `xml:"ust"`
+}
+
+type ProductsReturnLanguageMt struct {
+	XmlName          xml.Name `xml:"MT"`
+	Alias            string   `xml:"Alias"`
+	Beschreibung     string   `xml:"Beschreibung"`
+	Kurzbeschreibung string   `xml:"Kurzbeschreibung"`
+	Name             string   `xml:"Name"`
+	Ust              string   `xml:"ust"`
+}
+
+type ProductsReturnLanguageN struct {
+	XmlName          xml.Name `xml:"N"`
+	Alias            string   `xml:"Alias"`
+	Beschreibung     string   `xml:"Beschreibung"`
+	Kurzbeschreibung string   `xml:"Kurzbeschreibung"`
+	Name             string   `xml:"Name"`
+	Ust              string   `xml:"ust"`
+}
+
+type ProductsReturnLanguageNl struct {
+	XmlName          xml.Name `xml:"NL"`
+	Alias            string   `xml:"Alias"`
+	Beschreibung     string   `xml:"Beschreibung"`
+	Kurzbeschreibung string   `xml:"Kurzbeschreibung"`
+	Name             string   `xml:"Name"`
+	Ust              string   `xml:"ust"`
+}
+
+type ProductsReturnLanguageP struct {
+	XmlName          xml.Name `xml:"P"`
+	Alias            string   `xml:"Alias"`
+	Beschreibung     string   `xml:"Beschreibung"`
+	Kurzbeschreibung string   `xml:"Kurzbeschreibung"`
+	Name             string   `xml:"Name"`
+	Ust              string   `xml:"ust"`
+}
+
+type ProductsReturnLanguagePl struct {
+	XmlName          xml.Name `xml:"PL"`
+	Alias            string   `xml:"Alias"`
+	Beschreibung     string   `xml:"Beschreibung"`
+	Kurzbeschreibung string   `xml:"Kurzbeschreibung"`
+	Name             string   `xml:"Name"`
+	Ust              string   `xml:"ust"`
+}
+
+type ProductsReturnLanguageRo struct {
+	XmlName          xml.Name `xml:"RO"`
+	Alias            string   `xml:"Alias"`
+	Beschreibung     string   `xml:"Beschreibung"`
+	Kurzbeschreibung string   `xml:"Kurzbeschreibung"`
+	Name             string   `xml:"Name"`
+	Ust              string   `xml:"ust"`
+}
+
+type ProductsReturnLanguageRu struct {
+	XmlName          xml.Name `xml:"RU"`
+	Alias            string   `xml:"Alias"`
+	Beschreibung     string   `xml:"Beschreibung"`
+	Kurzbeschreibung string   `xml:"Kurzbeschreibung"`
+	Name             string   `xml:"Name"`
+	Ust              string   `xml:"ust"`
+}
+
+type ProductsReturnLanguageS struct {
+	XmlName          xml.Name `xml:"S"`
+	Alias            string   `xml:"Alias"`
+	Beschreibung     string   `xml:"Beschreibung"`
+	Kurzbeschreibung string   `xml:"Kurzbeschreibung"`
+	Name             string   `xml:"Name"`
+	Ust              string   `xml:"ust"`
+}
+
+type ProductsReturnLanguageSk struct {
+	XmlName          xml.Name `xml:"SK"`
+	Alias            string   `xml:"Alias"`
+	Beschreibung     string   `xml:"Beschreibung"`
+	Kurzbeschreibung string   `xml:"Kurzbeschreibung"`
+	Name             string   `xml:"Name"`
+	Ust              string   `xml:"ust"`
+}
+
+type ProductsReturnLanguageSlo struct {
+	XmlName          xml.Name `xml:"SLO"`
+	Alias            string   `xml:"Alias"`
+	Beschreibung     string   `xml:"Beschreibung"`
+	Kurzbeschreibung string   `xml:"Kurzbeschreibung"`
+	Name             string   `xml:"Name"`
+	Ust              string   `xml:"ust"`
+}
+
+type ProductsReturnLanguageTr struct {
+	XmlName          xml.Name `xml:"TR"`
+	Alias            string   `xml:"Alias"`
+	Beschreibung     string   `xml:"Beschreibung"`
+	Kurzbeschreibung string   `xml:"Kurzbeschreibung"`
+	Name             string   `xml:"Name"`
+	Ust              string   `xml:"ust"`
+}
+
+type ProductsReturnLanguageUs struct {
+	XmlName          xml.Name `xml:"US"`
+	Alias            string   `xml:"Alias"`
+	Beschreibung     string   `xml:"Beschreibung"`
+	Kurzbeschreibung string   `xml:"Kurzbeschreibung"`
+	Name             string   `xml:"Name"`
+	Ust              string   `xml:"ust"`
 }
 
 // Products are to get all products from ab interface
