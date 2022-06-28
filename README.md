@@ -384,6 +384,7 @@ body.Items = append(body.Items, goafterbuy.AddOrderBodyItem{
     ArticleVat:       "0,99",
     ArticleQuantity:  "19",
     ArticleLink:      "http://jj-dev.de",
+    Attribute:        "Größe:XL|Farbe:Blau",
     ArticleMasterId:  "2131424124",
     ArticleTag1:      "Stornierungsanfrage",
     ArticleTag2:      "",
