@@ -180,6 +180,7 @@ type SoldItemsReturnSoldItem struct {
 	EBayFeedbackCompleted   int                                 `xml:"eBayFeedbackCompleted"`
 	EBayFeedbackReceived    int                                 `xml:"eBayFeedbackReceived"`
 	ShopProductDetails      SoldItemsReturnShopProductDetails   `xml:"ShopProductDetails"`
+	SoldItemAttributes      SoldItemsReturnSoldItemAttributes   `xml:"SoldItemAttributes"`
 	Tags                    SoldItemReturnTags                  `xml:"Tags"`
 }
 
@@ -215,6 +216,18 @@ type SoldItemsReturnChildProduct struct {
 	ProductVat       int      `xml:"ProductVAT"`
 	ProductWeight    string   `xml:"ProductWeight"`
 	ProductUnitPrice string   `xml:"ProductUnitPrice"`
+}
+
+type SoldItemsReturnSoldItemAttributes struct {
+	XmlName           xml.Name                           `xml:"SoldItemAttributes"`
+	SoldItemAttribute []SoldItemsReturnSoldItemAttribute `xml:"SoldItemAttribute"`
+}
+
+type SoldItemsReturnSoldItemAttribute struct {
+	XmlName           xml.Name `xml:"SoldItemAttribute"`
+	AttributeName     string   `xml:"AttributeName"`
+	AttributeValue    string   `xml:"AttributeValue"`
+	AttributePosition int      `xml:"AttributePosition"`
 }
 
 type SoldItemsReturnTags struct {
@@ -412,6 +425,7 @@ type SoldItemReturnSoldItem struct {
 	EBayFeedbackCompleted   int                                `xml:"eBayFeedbackCompleted"`
 	EBayFeedbackReceived    int                                `xml:"eBayFeedbackReceived"`
 	ShopProductDetails      SoldItemReturnShopProductDetails   `xml:"ShopProductDetails"`
+	SoldItemAttributes      SoldItemReturnSoldItemAttributes   `xml:"SoldItemAttributes"`
 	Tags                    SoldItemReturnTags                 `xml:"Tags"`
 }
 
@@ -447,6 +461,18 @@ type SoldItemReturnChildProduct struct {
 	ProductVat       int      `xml:"ProductVAT"`
 	ProductWeight    string   `xml:"ProductWeight"`
 	ProductUnitPrice string   `xml:"ProductUnitPrice"`
+}
+
+type SoldItemReturnSoldItemAttributes struct {
+	XmlName           xml.Name                          `xml:"SoldItemAttributes"`
+	SoldItemAttribute []SoldItemReturnSoldItemAttribute `xml:"SoldItemAttribute"`
+}
+
+type SoldItemReturnSoldItemAttribute struct {
+	XmlName           xml.Name `xml:"SoldItemAttribute"`
+	AttributeName     string   `xml:"AttributeName"`
+	AttributeValue    string   `xml:"AttributeValue"`
+	AttributePosition int      `xml:"AttributePosition"`
 }
 
 type SoldItemReturnTags struct {
