@@ -51,19 +51,26 @@ type AddOrderBody struct {
 	KLCountry               string
 	KLPhone                 string
 	Comment                 string
-	ShippingGroup           string
+	UseComplWeight          string
+	UseProductTaxRate       string
+	BuyDate                 string
 	ShippingMethod          string
-	PaymentMethodsSurcharge string
 	ShippingCosts           string
+	PaymentMethodsSurcharge string
+	NoFeedback              string
 	NoShippingCalc          string
+	ShippingGroup           string
+	DoNotDisplayVat         string
 	PaymentMethod           string
-	SoldCurrency            string
 	VMemo                   string
 	OrderInfo1              string
 	OrderInfo2              string
 	OrderInfo3              string
-	NoFeedback              string
+	VId                     string
+	SoldCurrency            string
 	SetPay                  string
+	SetPayDate              string
+	CheckVId                string
 	CustomerIdentification  string
 	ArticleIdentification   string
 	StockType               string
@@ -155,19 +162,26 @@ func AddOrder(body AddOrderBody) (AddOrderReturn, error) {
 	parameter.Add("KLLand", body.KLCountry)
 	parameter.Add("KLTelefon", body.KLPhone)
 	parameter.Add("Kommentar", body.Comment)
-	parameter.Add("Versandgruppe", body.ShippingGroup)
+	parameter.Add("UseComplWeight", body.UseComplWeight)
+	parameter.Add("UseProductTaxRate", body.UseProductTaxRate)
+	parameter.Add("BuyDate", body.BuyDate)
 	parameter.Add("Versandart", body.ShippingMethod)
-	parameter.Add("ZahlartenAufschlag", body.PaymentMethodsSurcharge)
 	parameter.Add("Versandkosten", body.ShippingCosts)
+	parameter.Add("ZahlartenAufschlag", body.PaymentMethodsSurcharge)
+	parameter.Add("NoFeedback", body.NoFeedback)
 	parameter.Add("NoVersandCalc", body.NoShippingCalc)
+	parameter.Add("Versandgruppe", body.ShippingGroup)
+	parameter.Add("MwStNichtAusweisen", body.DoNotDisplayVat)
 	parameter.Add("Zahlart", body.PaymentMethod)
-	parameter.Add("SoldCurrency", body.SoldCurrency)
 	parameter.Add("VMemo", body.VMemo)
 	parameter.Add("OrderInfo1", body.OrderInfo1)
 	parameter.Add("OrderInfo2", body.OrderInfo2)
 	parameter.Add("OrderInfo3", body.OrderInfo3)
-	parameter.Add("NoFeedback", body.NoFeedback)
+	parameter.Add("VID", body.VId)
+	parameter.Add("SoldCurrency", body.SoldCurrency)
 	parameter.Add("SetPay", body.SetPay)
+	parameter.Add("SetPayDate", body.SetPayDate)
+	parameter.Add("CheckVID", body.CheckVId)
 	parameter.Add("Kundenerkennung", body.CustomerIdentification)
 	parameter.Add("Artikelerkennung", body.ArticleIdentification)
 	parameter.Add("Bestandart", body.StockType)
