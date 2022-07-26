@@ -119,6 +119,7 @@ type ProductsReturnProduct struct {
 	ShopShippingGroup                  string                         `xml:"ShopShippingGroup"`
 	SearchEngineShipping               string                         `xml:"SearchEngineShipping"`
 	CrossCatalogId                     int                            `xml:"CrossCatalogID"`
+	Features                           ProductsReturnFeatures         `xml:"Features"`
 	FreeValue1                         string                         `xml:"FreeValue1"`
 	FreeValue2                         string                         `xml:"FreeValue2"`
 	FreeValue3                         string                         `xml:"FreeValue3"`
@@ -147,6 +148,7 @@ type ProductsReturnProduct struct {
 	LastSale                           string                         `xml:"LastSale"`
 	Catalogs                           ProductsReturnCatalogs         `xml:"Catalogs"`
 	Attributes                         ProductsReturnAttributes       `xml:"Attributes"`
+	PartsFitment                       ProductsReturnPartsFitment     `xml:"PartsFitment"`
 	Facebook                           int                            `xml:"Facebook"`
 	ManufacturerPartNumber             string                         `xml:"ManufacturerPartNumber"`
 	Condition                          int                            `xml:"Condition"`
@@ -214,6 +216,18 @@ type ProductsReturnScaledDiscount struct {
 	ScaledDPrice   string   `xml:"ScaledDPrice"`
 }
 
+type ProductsReturnFeatures struct {
+	XmlName xml.Name                `xml:"Features"`
+	Feature []ProductsReturnFeature `xml:"Feature"`
+}
+
+type ProductsReturnFeature struct {
+	XmlName xml.Name `xml:"Feature"`
+	Id      int      `xml:"ID"`
+	Name    string   `xml:"Name"`
+	Value   string   `xml:"Value"`
+}
+
 type ProductsReturnProductPictures struct {
 	XmlName        xml.Name                       `xml:"ProductPictures"`
 	ProductPicture []ProductsReturnProductPicture `xml:"ProductPicture"`
@@ -244,6 +258,22 @@ type ProductsReturnAttribut struct {
 	AttributType     int      `xml:"AttributType"`
 	AttributRequired int      `xml:"AttributRequired"`
 	AttributPosition int      `xml:"AttributPosition"`
+}
+
+type ProductsReturnPartsFitment struct {
+	XmlName         xml.Name                        `xml:"ProductsReturnPartsFitment"`
+	PartsProperties []ProductsReturnPartsProperties `xml:"PartsProperties"`
+}
+
+type ProductsReturnPartsProperties struct {
+	XmlName       xml.Name                      `xml:"PartsProperties"`
+	PartsProperty []ProductsReturnPartsProperty `xml:"PartsProperty"`
+}
+
+type ProductsReturnPartsProperty struct {
+	XmlName       xml.Name `xml:"PartsProperty"`
+	PropertyName  string   `xml:"PropertyName"`
+	PropertyValue string   `xml:"PropertyValue"`
 }
 
 type ProductsReturnPaginationResult struct {
