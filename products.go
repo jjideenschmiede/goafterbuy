@@ -1,6 +1,6 @@
 //********************************************************************************************************************//
 //
-// Copyright (C) 2018 - 2021 J&J Ideenschmiede GmbH <info@jj-ideenschmiede.de>
+// Copyright (C) 2018 - 2022 J&J Ideenschmiede GmbH <info@jj-ideenschmiede.de>
 //
 // This file is part of goafterbuy.
 // All code may be used. Feel free and maybe code something better.
@@ -12,6 +12,7 @@
 package goafterbuy
 
 import (
+	"bytes"
 	"encoding/xml"
 )
 
@@ -647,8 +648,18 @@ func Products(body ProductsBody) (ProductsReturn, error) {
 		return ProductsReturn{}, err
 	}
 
-	// Config new request
-	c := Config{nil, convert}
+	// Set config for request
+	c := Config{
+		BaseUrl: "https://api.afterbuy.de/afterbuy/ABInterface.aspx",
+		Method:  "GET",
+		Body:    bytes.NewBuffer(convert),
+		Header:  map[string]string{},
+	}
+
+	// Add header to config
+	header := make(map[string]string)
+	header["Content-Type"] = "application/xml"
+	c.Header = header
 
 	// Send new request
 	response, err := c.Send()

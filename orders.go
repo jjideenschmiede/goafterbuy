@@ -14,7 +14,9 @@ package goafterbuy
 import (
 	"encoding/xml"
 	"fmt"
-	"net/http"
+	"io"
+	"net/url"
+	"strings"
 )
 
 // AddOrderBody is to structure the order body data
@@ -121,14 +123,27 @@ type AddOrderReturnErrorList struct {
 // AddOrder is to add a new order via shop interface
 func AddOrder(body AddOrderBody) (AddOrderReturn, error) {
 
-	// Define request
-	request, err := http.NewRequest(method, shopInterfaceBaseUrl, nil)
+	// Config new request
+	c := Config{
+		BaseUrl: "https://api.afterbuy.de/afterbuy/ShopInterfaceUTF8.aspx",
+		Method:  "POST",
+		Body:    nil,
+		Header:  map[string]string{},
+	}
+
+	// Add header to config
+	header := make(map[string]string)
+	header["Content-Type"] = "application/x-www-form-urlencoded"
+	c.Header = header
+
+	// Parse the url from base url
+	parse, err := url.Parse(c.BaseUrl)
 	if err != nil {
 		return AddOrderReturn{}, err
 	}
 
-	// Set url parameter
-	parameter := request.URL.Query()
+	// Check the parameter
+	parameter := parse.Query()
 
 	parameter.Add("Action", body.Action)
 	parameter.Add("Partnerid", body.PartnerId)
@@ -209,17 +224,19 @@ func AddOrder(body AddOrderBody) (AddOrderReturn, error) {
 
 	}
 
-	// Set new url
-	request.URL.RawQuery = parameter.Encode()
+	fmt.Println(parameter.Encode())
 
-	// Config new request
-	c := Config{request, nil}
+	// Save parameter to config struct
+	c.Body = strings.NewReader(parameter.Encode())
 
 	// Send new request
 	response, err := c.Send()
 	if err != nil {
 		return AddOrderReturn{}, err
 	}
+
+	test, _ := io.ReadAll(response.Body)
+	fmt.Println(string(test))
 
 	// Close request body
 	defer response.Body.Close()
