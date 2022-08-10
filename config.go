@@ -1,6 +1,6 @@
 //********************************************************************************************************************//
 //
-// Copyright (C) 2018 - 2021 J&J Ideenschmiede GmbH <info@jj-ideenschmiede.de>
+// Copyright (C) 2018 - 2022 J&J Ideenschmiede GmbH <info@jj-ideenschmiede.de>
 //
 // This file is part of goafterbuy.
 // All code may be used. Feel free and maybe code something better.
@@ -12,14 +12,8 @@
 package goafterbuy
 
 import (
-	"bytes"
+	"io"
 	"net/http"
-)
-
-const (
-	abInterfaceBaseUrl   = "https://api.afterbuy.de/afterbuy/ABInterface.aspx"
-	shopInterfaceBaseUrl = "https://api.afterbuy.de/afterbuy/ShopInterfaceUTF8.aspx"
-	method               = "GET"
 )
 
 // AfterbuyGlobal is to define afterbuy global data
@@ -37,8 +31,9 @@ type AfterbuyGlobal struct {
 
 // Config is to define the request data
 type Config struct {
-	Request *http.Request
-	Body    []byte
+	BaseUrl, Method string
+	Body            io.Reader
+	Header          map[string]string
 }
 
 // Send is to send a new request
@@ -48,14 +43,14 @@ func (c *Config) Send() (*http.Response, error) {
 	client := &http.Client{}
 
 	// Define request
-	request, err := http.NewRequest(method, abInterfaceBaseUrl, bytes.NewBuffer(c.Body))
+	request, err := http.NewRequest(c.Method, c.BaseUrl, c.Body)
 	if err != nil {
 		return nil, err
 	}
 
-	// Add new request request
-	if c.Request != nil {
-		request = c.Request
+	// Add request header
+	for index, value := range c.Header {
+		request.Header.Add(index, value)
 	}
 
 	// Send request & get response
