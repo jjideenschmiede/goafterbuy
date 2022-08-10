@@ -14,7 +14,6 @@ package goafterbuy
 import (
 	"encoding/xml"
 	"fmt"
-	"io"
 	"net/url"
 	"strings"
 )
@@ -224,8 +223,6 @@ func AddOrder(body AddOrderBody) (AddOrderReturn, error) {
 
 	}
 
-	fmt.Println(parameter.Encode())
-
 	// Save parameter to config struct
 	c.Body = strings.NewReader(parameter.Encode())
 
@@ -234,9 +231,6 @@ func AddOrder(body AddOrderBody) (AddOrderReturn, error) {
 	if err != nil {
 		return AddOrderReturn{}, err
 	}
-
-	test, _ := io.ReadAll(response.Body)
-	fmt.Println(string(test))
 
 	// Close request body
 	defer response.Body.Close()
