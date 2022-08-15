@@ -23,11 +23,19 @@ func TestCatalogs(t *testing.T) {
 			},
 			MaxCatalogs: 200,
 			DataFilter: &goafterbuy.CatalogsRequestDataFilter{
-				Filter: goafterbuy.CatalogsRequestFilter{
-					FilterName: "RangeID",
-					FilterValues: goafterbuy.CatalogsRequestFilterValues{
-						ValueFrom: 0,
-						ValueTo:   0,
+				Filter: []goafterbuy.CatalogsRequestFilter{
+					{
+						FilterName: "RangeID",
+						FilterValues: goafterbuy.CatalogsRequestFilterValues{
+							ValueFrom: 0,
+							ValueTo:   0,
+						},
+					},
+					{
+						FilterName: "Level",
+						FilterValues: goafterbuy.CatalogsRequestFilterValues{
+							FilterValue: []string{"0", "1", "2"},
+						},
 					},
 				},
 			},
