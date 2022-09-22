@@ -136,7 +136,7 @@ type ProductsReturnProduct struct {
 	Stocklocation2                     string                         `xml:"Stocklocation_2"`
 	Stocklocation3                     string                         `xml:"Stocklocation_3"`
 	Stocklocation4                     string                         `xml:"Stocklocation_4"`
-	ImageSmallUrl                      string                         `xml:"image_small_url"`
+	ImageSmallUrl                      string                         `xml:"ImageSmallURL"`
 	ImageLargeUrl                      string                         `xml:"ImageLargeURL"`
 	ProductPictures                    ProductsReturnProductPictures  `xml:"ProductPictures"`
 	AmazonStandardProductIdType        string                         `xml:"AmazonStandardProductIDType"`
