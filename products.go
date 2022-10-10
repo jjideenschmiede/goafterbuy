@@ -65,6 +65,7 @@ type ProductsReturnResult struct {
 	ShippingServiceList string                         `xml:"ShippingServiceList"`
 	LastProductId       int                            `xml:"LastProductID"`
 	PaginationResult    ProductsReturnPaginationResult `xml:"PaginationResult"`
+	ErrorList           ProductsReturnErrorList        `xml:"ErrorList"`
 }
 
 type ProductsReturnProducts struct {
@@ -637,6 +638,18 @@ type ProductsReturnLanguageUs struct {
 	Kurzbeschreibung string   `xml:"Kurzbeschreibung"`
 	Name             string   `xml:"Name"`
 	Ust              string   `xml:"ust"`
+}
+
+type ProductsReturnErrorList struct {
+	XmlName xml.Name              `xml:"ErrorList"`
+	Error   []ProductsReturnError `xml:"Error"`
+}
+
+type ProductsReturnError struct {
+	XmlName              xml.Name `xml:"Error"`
+	ErrorCode            int      `xml:"ErrorCode"`
+	ErrorDescription     string   `xml:"ErrorDescription"`
+	ErrorLongDescription string   `xml:"ErrorLongDescription"`
 }
 
 // Products are to get all products from ab interface
