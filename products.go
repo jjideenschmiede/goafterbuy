@@ -174,6 +174,7 @@ type ProductsReturnBaseProducts struct {
 type ProductsReturnBaseProduct struct {
 	XmlName                  xml.Name                               `xml:"BaseProduct"`
 	BaseProductId            int                                    `xml:"BaseProductID"`
+	BaseProductType          int                                    `xml:"BaseProductType"`
 	BaseProductsRelationData ProductsReturnBaseProductsRelationData `xml:"BaseProductsRelationData"`
 }
 
