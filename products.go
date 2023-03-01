@@ -653,6 +653,67 @@ type ProductsReturnError struct {
 	ErrorLongDescription string   `xml:"ErrorLongDescription"`
 }
 
+// UpdateProductsBody is to send the body data
+type UpdateProductsBody struct {
+	Request UpdateProductsRequest `xml:"Request"`
+}
+
+type UpdateProductsRequest struct {
+	AfterbuyGlobal AfterbuyGlobal         `xml:"AfterbuyGlobal"`
+	Products       UpdateProductsProducts `xml:"Products"`
+}
+
+type UpdateProductsProducts struct {
+	XmlName xml.Name                `xml:"Products"`
+	Product []UpdateProductsProduct `xml:"Product"`
+}
+
+type UpdateProductsProduct struct {
+	XmlName         xml.Name                   `xml:"Product"`
+	ProductIdent    UpdateProductsProductIdent `xml:"ProductIdent"`
+	Quantity        int                        `xml:"Quantity"`
+	AuctionQuantity int                        `xml:"AuctionQuantity"`
+	Stock           int                        `xml:"Stock"`
+	SellingPrice    string                     `xml:"SellingPrice"`
+	BuyingPrice     string                     `xml:"BuyingPrice"`
+	DealerPrice     string                     `xml:"DealerPrice"`
+}
+
+type UpdateProductsProductIdent struct {
+	XmlName       xml.Name `xml:"ProductIdent"`
+	ProductInsert int      `xml:"ProductInsert"`
+	ProductID     int      `xml:"ProductID"`
+	Anr           int      `xml:"Anr"`
+	EAN           string   `xml:"EAN"`
+}
+
+// UpdateProductsReturn is to decode the xml data
+type UpdateProductsReturn struct {
+	XmlName    xml.Name                   `xml:"Afterbuy"`
+	CallStatus string                     `xml:"CallStatus"`
+	CallName   string                     `xml:"CallName"`
+	VersionID  int                        `xml:"VersionID"`
+	Result     UpdateProductsReturnResult `xml:"Result"`
+}
+
+type UpdateProductsReturnResult struct {
+	XmlName     xml.Name                        `xml:"Result"`
+	WarningList UpdateProductsReturnWarningList `xml:"WarningList"`
+}
+
+type UpdateProductsReturnWarningList struct {
+	XmlName xml.Name                      `xml:"WarningList"`
+	Warning []UpdateProductsReturnWarning `xml:"Warning"`
+}
+
+type UpdateProductsReturnWarning struct {
+	XmlName                xml.Name `xml:"Warning"`
+	WarningCode            int      `xml:"WarningCode"`
+	WarningDescription     string   `xml:"WarningDescription"`
+	WarningLongDescription string   `xml:"WarningLongDescription"`
+	UserProductId          string   `xml:"UserProductId"`
+}
+
 // Products are to get all products from ab interface
 func Products(body ProductsBody) (ProductsReturn, error) {
 
@@ -690,6 +751,50 @@ func Products(body ProductsBody) (ProductsReturn, error) {
 	err = xml.NewDecoder(response.Body).Decode(&decode)
 	if err != nil {
 		return ProductsReturn{}, err
+	}
+
+	// Return data
+	return decode, nil
+
+}
+
+// UpdateProducts are to update a product from ab interface
+func UpdateProducts(body UpdateProductsBody) (UpdateProductsReturn, error) {
+
+	// Convert body
+	convert, err := xml.Marshal(body)
+	if err != nil {
+		return UpdateProductsReturn{}, err
+	}
+
+	// Set config for request
+	c := Config{
+		BaseUrl: "https://api.afterbuy.de/afterbuy/ABInterface.aspx",
+		Method:  "GET",
+		Body:    bytes.NewBuffer(convert),
+		Header:  map[string]string{},
+	}
+
+	// Add header to config
+	header := make(map[string]string)
+	header["Content-Type"] = "application/xml"
+	c.Header = header
+
+	// Send new request
+	response, err := c.Send()
+	if err != nil {
+		return UpdateProductsReturn{}, err
+	}
+
+	// Close request body
+	defer response.Body.Close()
+
+	// Decode data
+	var decode UpdateProductsReturn
+
+	err = xml.NewDecoder(response.Body).Decode(&decode)
+	if err != nil {
+		return UpdateProductsReturn{}, err
 	}
 
 	// Return data
