@@ -45,3 +45,44 @@ func TestProducts(t *testing.T) {
 	t.Logf("The products were read. There are \"%d\" products. Here you can see the names of the products read out: %v.", len(results), results)
 
 }
+
+// TestUpdateProducts is to test the products update function
+func TestUpdateProducts(t *testing.T) {
+
+	// Define variables for request
+	partnerToken := ""
+	accountToken := ""
+
+	// Define products body
+	body := goafterbuy.UpdateProductsBody{
+		Request: goafterbuy.UpdateProductsRequest{
+			AfterbuyGlobal: goafterbuy.AfterbuyGlobal{
+				PartnerToken:  partnerToken,
+				AccountToken:  accountToken,
+				CallName:      "UpdateShopProducts",
+				ErrorLanguage: "DE",
+			},
+			Products: goafterbuy.UpdateProductsProducts{
+				Product: []goafterbuy.UpdateProductsProduct{
+					{
+						ProductIdent: goafterbuy.UpdateProductsProductIdent{
+							ProductInsert: 0,
+							ProductID:     81865201,
+						},
+						Quantity: 187,
+					},
+				},
+			},
+		},
+	}
+
+	// Update products
+	product, err := goafterbuy.UpdateProducts(body)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	// Print output
+	t.Logf("The product were updated. Here is the result: %v.", product)
+
+}
