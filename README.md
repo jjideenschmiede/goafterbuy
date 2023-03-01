@@ -86,6 +86,43 @@ body := goafterbuy.ProductsBody{
 }
 ```
 
+## Update product
+
+If you want to update a product, then you can use the following function.
+
+```go
+// Define products body
+body := goafterbuy.UpdateProductsBody{
+	Request: goafterbuy.UpdateProductsRequest{
+		AfterbuyGlobal: goafterbuy.AfterbuyGlobal{
+			PartnerToken:  partnerToken,
+			AccountToken:  accountToken,
+			CallName:      "UpdateShopProducts",
+			ErrorLanguage: "DE",
+		},
+		Products: goafterbuy.UpdateProductsProducts{
+			Product: []goafterbuy.UpdateProductsProduct{
+				{
+					ProductIdent: goafterbuy.UpdateProductsProductIdent{
+						ProductInsert: 0,
+						ProductID:     81865201,
+					},
+					Quantity: 187,
+				},
+			},
+		},
+	},
+}
+
+// Update product
+product, err := goafterbuy.UpdateProducts(body)
+if err != nil {
+	fmt.Println(err)
+} else {
+	fmt.Println(product)
+}
+```
+
 ## Get stock
 
 If you want to read out a stock, then you can do this here via the ID of the product. Please note that you need the same data here as when reading out the products.
