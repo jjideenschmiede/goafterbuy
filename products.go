@@ -240,7 +240,7 @@ type ProductsReturnProductPictures struct {
 type ProductsReturnProductPicture struct {
 	XmlName xml.Name             `xml:"ProductPicture"`
 	Nr      int                  `xml:"Nr"`
-	Type    int                  `xml:"Type"`
+	Typ     int                  `xml:"Typ"`
 	Url     string               `xml:"Url"`
 	AltText string               `xml:"AltText"`
 	Childs  ProductsReturnChilds `xml:"Childs"`
@@ -254,7 +254,7 @@ type ProductsReturnChilds struct {
 type ProductsReturnChildsProductPicture struct {
 	XmlName xml.Name `xml:"ProductPicture"`
 	Nr      int      `xml:"Nr"`
-	Type    int      `xml:"Type"`
+	Typ     int      `xml:"Typ"`
 	Url     string   `xml:"Url"`
 	AltText string   `xml:"AltText"`
 }
