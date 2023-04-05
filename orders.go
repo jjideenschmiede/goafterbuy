@@ -72,6 +72,8 @@ type AddOrderBody struct {
 	SetPay                  string
 	SetPayDate              string
 	CheckVId                string
+	PaymentStatus           string
+	PaymentTransactionId    string
 	CustomerIdentification  string
 	ArticleIdentification   string
 	StockType               string
@@ -196,6 +198,8 @@ func AddOrder(body AddOrderBody) (AddOrderReturn, error) {
 	parameter.Add("SetPay", body.SetPay)
 	parameter.Add("SetPayDate", body.SetPayDate)
 	parameter.Add("CheckVID", body.CheckVId)
+	parameter.Add("PaymentStatus", body.PaymentStatus)
+	parameter.Add("PaymentTransactionId", body.PaymentTransactionId)
 	parameter.Add("Kundenerkennung", body.CustomerIdentification)
 	parameter.Add("Artikelerkennung", body.ArticleIdentification)
 	parameter.Add("Bestandart", body.StockType)
