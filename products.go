@@ -89,6 +89,9 @@ type ProductsReturnProduct struct {
 	ShortDescription                   string                                    `xml:"ShortDescription"`
 	Memo                               string                                    `xml:"Memo"`
 	GoogleBaseLabels                   string                                    `xml:"GoogleBaseLabels"`
+	HeaderId                           int                                       `xml:"HeaderID"`
+	HeaderDescriptionName              string                                    `xml:"HeaderDescriptionName"`
+	HeaderDescriptionValue             string                                    `xml:"HeaderDescriptionValue"`
 	Description                        string                                    `xml:"Description"`
 	FooterId                           int                                       `xml:"FooterID"`
 	FooterDescriptionName              string                                    `xml:"FooterDescriptionName"`
