@@ -94,14 +94,16 @@ type SoldItemsReturnOrder struct {
 }
 
 type SoldItemsReturnPaymentInfo struct {
-	XmlName         xml.Name `xml:"PaymentInfo"`
-	PaymentId       string   `xml:"PaymentID"`
-	PaymentMethod   string   `xml:"PaymentMethod"`
-	PaymentFunction string   `xml:"PaymentFunction"`
-	PaymentDate     string   `xml:"PaymentDate"`
-	AlreadyPaid     string   `xml:"AlreadyPaid"`
-	FullAmount      string   `xml:"FullAmount"`
-	InvoiceDate     string   `xml:"InvoiceDate"`
+	XmlName              xml.Name `xml:"PaymentInfo"`
+	PaymentId            string   `xml:"PaymentID"`
+	PaymentMethod        string   `xml:"PaymentMethod"`
+	PaymentFunction      string   `xml:"PaymentFunction"`
+	PaymentTransactionId string   `xml:"PaymentTransactionID"`
+	PaymentStatus        string   `xml:"PaymentStatus"`
+	PaymentDate          string   `xml:"PaymentDate"`
+	AlreadyPaid          string   `xml:"AlreadyPaid"`
+	FullAmount           string   `xml:"FullAmount"`
+	InvoiceDate          string   `xml:"InvoiceDate"`
 }
 
 type SoldItemsReturnBuyerInfo struct {
@@ -339,14 +341,16 @@ type SoldItemReturnOrder struct {
 }
 
 type SoldItemReturnPaymentInfo struct {
-	XmlName         xml.Name `xml:"PaymentInfo"`
-	PaymentId       string   `xml:"PaymentID"`
-	PaymentMethod   string   `xml:"PaymentMethod"`
-	PaymentFunction string   `xml:"PaymentFunction"`
-	PaymentDate     string   `xml:"PaymentDate"`
-	AlreadyPaid     string   `xml:"AlreadyPaid"`
-	FullAmount      string   `xml:"FullAmount"`
-	InvoiceDate     string   `xml:"InvoiceDate"`
+	XmlName              xml.Name `xml:"PaymentInfo"`
+	PaymentId            string   `xml:"PaymentID"`
+	PaymentMethod        string   `xml:"PaymentMethod"`
+	PaymentFunction      string   `xml:"PaymentFunction"`
+	PaymentTransactionId string   `xml:"PaymentTransactionID"`
+	PaymentStatus        string   `xml:"PaymentStatus"`
+	PaymentDate          string   `xml:"PaymentDate"`
+	AlreadyPaid          string   `xml:"AlreadyPaid"`
+	FullAmount           string   `xml:"FullAmount"`
+	InvoiceDate          string   `xml:"InvoiceDate"`
 }
 
 type SoldItemReturnBuyerInfo struct {
@@ -563,10 +567,15 @@ type UpdateSoldItemBodyShippingAddress struct {
 }
 
 type UpdateSoldItemBodyPaymentInfo struct {
-	PaymentMethod          string `xml:"PaymentMethod,omitempty"`
-	PaymentDate            string `xml:"PaymentDate,omitempty"`
-	AlreadyPaid            string `xml:"AlreadyPaid,omitempty"`
-	PaymentAadditionalCost string `xml:"PaymentAadditionalCost,omitempty"`
+	PaymentId            string `xml:"PaymentID,omitempty"`
+	PaymentMethod        string `xml:"PaymentMethod,omitempty"`
+	PaymentFunction      string `xml:"PaymentFunction,omitempty"`
+	PaymentTransactionId string `xml:"PaymentTransactionID,omitempty"`
+	PaymentStatus        string `xml:"PaymentStatus,omitempty"`
+	PaymentDate          string `xml:"PaymentDate,omitempty"`
+	AlreadyPaid          string `xml:"AlreadyPaid,omitempty"`
+	FullAmount           string `xml:"FullAmount,omitempty"`
+	InvoiceDate          string `xml:"InvoiceDate,omitempty"`
 }
 
 type UpdateSoldItemBodyShippingInfo struct {
