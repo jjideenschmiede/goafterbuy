@@ -369,9 +369,8 @@ If an order is to be returned to the system, then this can be done as follows. P
 // Define order body
 body := AddOrderBody{
     Action:                  "new",
-    PartnerId:               "",
-    PartnerPass:             "",
-    UserId:                  "",
+    PartnerToken:            "",
+    UserToken:               "", 
     ItemNo:                  "1",
     KUsername:               "WooCommerce",
     KSalutation:             "Herr",
