@@ -21,9 +21,8 @@ import (
 // AddOrderBody is to structure the order body data
 type AddOrderBody struct {
 	Action                  string
-	PartnerId               string
-	PartnerPass             string
-	UserId                  string
+	PartnerToken            string
+	UserToken               string
 	ItemNo                  string
 	KUsername               string
 	KSalutation             string
@@ -148,9 +147,8 @@ func AddOrder(body AddOrderBody) (AddOrderReturn, error) {
 	parameter := parse.Query()
 
 	parameter.Add("Action", body.Action)
-	parameter.Add("Partnerid", body.PartnerId)
-	parameter.Add("PartnerPass", body.PartnerPass)
-	parameter.Add("UserID", body.UserId)
+	parameter.Add("PartnerToken", body.PartnerToken)
+	parameter.Add("UserToken", body.UserToken)
 	parameter.Add("PosAnz", body.ItemNo)
 	parameter.Add("Kbenutzername", body.KUsername)
 	parameter.Add("Kanrede", body.KSalutation)
