@@ -158,6 +158,7 @@ type ProductsReturnProduct struct {
 	Catalogs                           ProductsReturnCatalogs                    `xml:"Catalogs"`
 	Attributes                         ProductsReturnAttributes                  `xml:"Attributes"`
 	PartsFitment                       ProductsReturnPartsFitment                `xml:"PartsFitment"`
+	GoogleProductCategory              string                                    `xml:"GoogleProductCategory"`
 	Facebook                           int                                       `xml:"Facebook"`
 	ManufacturerPartNumber             string                                    `xml:"ManufacturerPartNumber"`
 	Condition                          int                                       `xml:"Condition"`
