@@ -172,6 +172,7 @@ type ProductsReturnProduct struct {
 	CustomLabel3                       string                                    `xml:"CustomLabel3"`
 	CustomLabel4                       string                                    `xml:"CustomLabel4"`
 	MultiLanguage                      ProductsReturnMultiLanguage               `xml:"MultiLanguage"`
+	EconomicOperator                   ProductsReturnEconomicOperator            `xml:"EconomicOperator"`
 }
 
 type ProductsReturnBaseProducts struct {
@@ -320,6 +321,21 @@ type ProductsReturnPaginationResult struct {
 	TotalNumberOfPages   int      `xml:"TotalNumberOfPages"`
 	ItemsPerPage         int      `xml:"ItemsPerPage"`
 	PageNumber           int      `xml:"PageNumber"`
+}
+
+type ProductsReturnEconomicOperator struct {
+	XmlName         xml.Name `xml:"EconomicOperator"`
+	DatabaseId      int      `xml:"DatabaseId"`
+	ContactType     int      `xml:"ContactType"`
+	Company         string   `xml:"Company"`
+	Street1         string   `xml:"Street1"`
+	Street2         string   `xml:"Street2"`
+	PostalCode      string   `xml:"PostalCode"`
+	City            string   `xml:"City"`
+	StateOrProvince string   `xml:"StateOrProvince"`
+	Country         string   `xml:"Country"`
+	Email           string   `xml:"Email"`
+	Phone           string   `xml:"Phone"`
 }
 
 type ProductsReturnMultiLanguage struct {
