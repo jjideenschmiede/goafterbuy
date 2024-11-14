@@ -61,6 +61,7 @@ type AddOrderBody struct {
 	NoShippingCalc          string
 	ShippingGroup           string
 	DoNotDisplayVat         string
+	VatId                   string
 	PaymentMethod           string
 	PaymentFunctionId       string
 	VMemo                   string
@@ -187,6 +188,7 @@ func AddOrder(body AddOrderBody) (AddOrderReturn, error) {
 	parameter.Add("NoVersandCalc", body.NoShippingCalc)
 	parameter.Add("Versandgruppe", body.ShippingGroup)
 	parameter.Add("MwStNichtAusweisen", body.DoNotDisplayVat)
+	parameter.Add("USStID", body.VatId)
 	parameter.Add("Zahlart", body.PaymentMethod)
 	parameter.Add("ZFunktionsID", body.PaymentFunctionId)
 	parameter.Add("VMemo", body.VMemo)
