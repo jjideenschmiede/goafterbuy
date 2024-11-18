@@ -90,6 +90,7 @@ type AddOrderBodyItem struct {
 	ArticleEPrice    string
 	ArticleVat       string
 	ArticleQuantity  string
+	ArticleWeight    string
 	ArticleLink      string
 	Attribute        string
 	ArticleMasterId  string
@@ -218,6 +219,7 @@ func AddOrder(body AddOrderBody) (AddOrderReturn, error) {
 		parameter.Add(fmt.Sprintf("ArtikelEpreis_%d", index+1), value.ArticleEPrice)
 		parameter.Add(fmt.Sprintf("ArtikelMwSt_%d", index+1), value.ArticleVat)
 		parameter.Add(fmt.Sprintf("ArtikelMenge_%d", index+1), value.ArticleQuantity)
+		parameter.Add(fmt.Sprintf("ArtikelGewicht_%d", index+1), value.ArticleWeight)
 		parameter.Add(fmt.Sprintf("ArtikelLink_%d", index+1), value.ArticleLink)
 		parameter.Add(fmt.Sprintf("Attribute_%d", index+1), value.Attribute)
 		parameter.Add(fmt.Sprintf("ArtikelStammID_%d", index+1), value.ArticleMasterId)
