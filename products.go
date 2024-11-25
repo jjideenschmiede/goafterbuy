@@ -84,6 +84,7 @@ type ProductsReturnProduct struct {
 	SeoName                            string                                    `xml:"SeoName"`
 	EnergyClass                        string                                    `xml:"EnergyClass"`
 	EnergyClassPictureUrl              string                                    `xml:"EnergyClassPictureUrl"`
+	DataSheetUrl                       string                                    `xml:"DataSheetUrl"`
 	ModDate                            string                                    `xml:"ModDate"`
 	BaseProductFlag                    int                                       `xml:"BaseProductFlag"`
 	BaseProductShowMode                int                                       `xml:"BaseProductShowMode"`
