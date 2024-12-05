@@ -501,13 +501,26 @@ type SoldItemReturnTags struct {
 }
 
 type SoldItemReturnShippingInfo struct {
-	XmlName                xml.Name `xml:"ShippingInfo"`
-	ShippingMethod         string   `xml:"ShippingMethod"`
-	ShippingCost           string   `xml:"ShippingCost"`
-	ShippingAdditionalCost string   `xml:"ShippingAdditionalCost"`
-	ShippingTotalCost      string   `xml:"ShippingTotalCost"`
-	ShippingTaxRate        string   `xml:"ShippingTaxRate"`
-	DeliveryDate           string   `xml:"DeliveryDate"`
+	XmlName                xml.Name                   `xml:"ShippingInfo"`
+	ShippingMethod         string                     `xml:"ShippingMethod"`
+	ShippingCost           string                     `xml:"ShippingCost"`
+	ShippingAdditionalCost string                     `xml:"ShippingAdditionalCost"`
+	ShippingTotalCost      string                     `xml:"ShippingTotalCost"`
+	ShippingTaxRate        string                     `xml:"ShippingTaxRate"`
+	DeliveryDate           string                     `xml:"DeliveryDate"`
+	ParcelLabels           SoldItemReturnParcelLabels `xml:"ParcelLabels"`
+}
+
+type SoldItemReturnParcelLabels struct {
+	XmlName     xml.Name                    `xml:"ParcelLabels"`
+	ParcelLabel []SoldItemReturnParcelLabel `xml:"ParcelLabel"`
+}
+
+type SoldItemReturnParcelLabel struct {
+	XmlName           xml.Name `xml:"ParcelLabel"`
+	ItemID            int      `xml:"ItemID"`
+	PackageNumber     int      `xml:"PackageNumber"`
+	ParcelLabelNumber string   `xml:"ParcelLabelNumber"`
 }
 
 type SoldItemReturnVorgangsInfo struct {
