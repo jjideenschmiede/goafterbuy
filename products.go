@@ -343,6 +343,7 @@ type ProductsReturnEconomicOperator struct {
 	StateOrProvince string   `xml:"StateOrProvince"`
 	Country         string   `xml:"Country"`
 	Email           string   `xml:"Email"`
+	ContactUrl      string   `xml:"ContactUrl"`
 	Phone           string   `xml:"Phone"`
 }
 
