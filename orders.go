@@ -77,6 +77,7 @@ type AddOrderBody struct {
 	PaymentTransactionId    string
 	CustomerIdentification  string
 	ArticleIdentification   string
+	Dealer                  string
 	StockType               string
 	B1                      string
 	Items                   []AddOrderBodyItem
@@ -205,6 +206,7 @@ func AddOrder(body AddOrderBody) (AddOrderReturn, error) {
 	parameter.Add("PaymentTransactionId", body.PaymentTransactionId)
 	parameter.Add("Kundenerkennung", body.CustomerIdentification)
 	parameter.Add("Artikelerkennung", body.ArticleIdentification)
+	parameter.Add("Haendler", body.Dealer)
 	parameter.Add("Bestandart", body.StockType)
 	parameter.Add("B1", body.B1)
 
