@@ -164,6 +164,7 @@ type SoldItemsReturnSoldItem struct {
 	AlternativeItemNumber1  string                              `xml:"AlternativeItemNumber1"`
 	AlternativeItemNumber   string                              `xml:"AlternativeItemNumber"`
 	Anr                     int                                 `xml:"Anr"`
+	IsAmazonPrime           bool                                `xml:"IsAmazonPrime"`
 	FulfillmentServiceLevel int                                 `xml:"FulfillmentServiceLevel"`
 	IsAmazonInvoiced        bool                                `xml:"IsAmazonInvoiced"`
 	PlatformSpecificOrderId string                              `xml:"PlatformSpecificOrderId"`
